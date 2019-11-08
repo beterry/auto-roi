@@ -1,0 +1,32 @@
+.intro{
+    display: flex;
+    height: 40vh;
+}
+
+.intro > div{
+    width: 50%;
+}
+
+.copy{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.copy h1{
+    margin: 0;
+}
+
+.copy h2{
+    margin: 0;
+}
+
+.sliderImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sliderImage{
+    width: 80%;
+}
