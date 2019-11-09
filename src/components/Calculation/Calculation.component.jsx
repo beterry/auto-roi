@@ -3,8 +3,17 @@ import React from 'react'
 //import styles
 import styles from './Calculation.module.css'
 
-export default (props) => (
-    <div className={styles.calculation}>
-        {props.children}
-    </div>
-)
+export default ({color, title, children}) => {
+    const style={
+        border: `solid 2px ${color}`
+    }
+    return (
+        <div
+            className={styles.calculation}
+            style={style}
+        >
+            <h2>{title}</h2>
+            {children}
+        </div>
+    )
+}

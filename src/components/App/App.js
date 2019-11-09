@@ -12,18 +12,21 @@ import LifetimeValue from '../LifetimeValue/LifetimeValue.component'
 import styles from './App.module.css'
 
 function App() {
-  const [lifetimeValue, setLifetimeValue] = useState({
-    aro: 573,
-    visits: 2,
-    years: 5,
-  })
+  const [aro, setAro] = useState(573)
+  const changeAro = (newValue) => {
+    console.log(newValue)
+    setAro(newValue)
+  }
   return (
     <Layout>
       <Header />
       <Intro />
       <Instructions />
       <Arrows />
-      <LifetimeValue />
+      <LifetimeValue 
+        aro={aro}
+        onChangeAro={changeAro}  
+      />
     </Layout>
   )
 }
