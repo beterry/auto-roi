@@ -8,6 +8,7 @@ import Instructions from '../Instructions/Instructions.component'
 import Arrows from '../Arrows/Arrows.component'
 import LifetimeValue from '../LifetimeValue/LifetimeValue.component'
 import Referrals from '../Referrals/Referrals.component'
+import TotalLifetime from '../TotalLifetime/TotalLifetime.component'
 
 //import styles
 import styles from './App.module.css'
@@ -53,6 +54,12 @@ function App() {
         years={years}
         referrals={referrals}
         onChangeReferrals={changeReferrals}
+      />
+      <TotalLifetime
+        aro={aro}
+        visits={visits}
+        years={years}
+        referrals={referrals}
       />
     </Layout>
   )
