@@ -9,11 +9,12 @@ import Calculation from '../Calculation/Calculation.component'
 import Illustration from '../Illustration/Illustration.component'
 import Tip from '../Tip/Tip.component'
 import Slider from '../Slider/Slider.component'
+import Total from '../Total/Total.component'
 
 //import images
 import tempImage from '../../images/instructions/car-red.png'
 
-export default ({aro, onChangeAro}) => (
+export default ({aro, visits, years, onChangeAro, onChangeVisits, onChangeYears}) => (
     <Step>
         <LeftCopy
             title={'STEP 1 OF 3'}
@@ -33,14 +34,28 @@ export default ({aro, onChangeAro}) => (
             <Slider
                 title={'Average Repair Order (ARO)'}
                 total={aro}
-                options={[
-                    100,
-                    300,
-                    573,
-                    750,
-                    1000
-                ]}
+                options={[100, 300, 573, 750, 1000]}
                 onChange={onChangeAro}
+            />
+            <Slider
+                title={'Number of Visits a Customer Makes Per Year'}
+                total={visits}
+                options={[1, 2, 3, 5, 10]}
+                onChange={onChangeVisits}
+            />
+            <Slider
+                title={'Yearly Value of Each Customer'}
+                total={aro * visits}
+            />
+            <Slider
+                title={'Average Number of Years You Keep A Customer'}
+                total={years}
+                options={[1, 3, 5, 10, 20]}
+                onChange={onChangeYears}
+            />
+            <Total
+                equation={`$${aro * visits} x ${years} =`}
+                total={aro * visits * years}
             />
         </Calculation>
         <Illustration

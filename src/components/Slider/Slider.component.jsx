@@ -3,9 +3,9 @@ import React from 'react'
 //import styles
 import styles from './Slider.module.css'
 
-const Slider = ({title, total, options, onChange}) => {
+const Slider = ({title, total, options=[], onChange}) => {
     return (
-        <div>
+        <div className={styles.slider}>
             <div className={styles.total}>
                 <h3>{title}</h3>
                 <h2>{total}</h2>

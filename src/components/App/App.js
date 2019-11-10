@@ -13,9 +13,19 @@ import styles from './App.module.css'
 
 function App() {
   const [aro, setAro] = useState(573)
+  const [visits, setVisits] = useState(2)
+  const [years, setYears] = useState(5)
   const changeAro = (newValue) => {
     console.log(newValue)
     setAro(newValue)
+  }
+  const changeVisits = (newValue) => {
+    console.log(newValue)
+    setVisits(newValue)
+  }
+  const changeYears = (newValue) => {
+    console.log(newValue)
+    setYears(newValue)
   }
   return (
     <Layout>
@@ -25,7 +35,11 @@ function App() {
       <Arrows />
       <LifetimeValue 
         aro={aro}
-        onChangeAro={changeAro}  
+        visits={visits}
+        years={years}
+        onChangeAro={changeAro}
+        onChangeVisits={changeVisits}  
+        onChangeYears={changeYears}
       />
     </Layout>
   )
