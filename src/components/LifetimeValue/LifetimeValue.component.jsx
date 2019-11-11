@@ -12,7 +12,7 @@ import Slider from '../Slider/Slider.component'
 import Total from '../Total/Total.component'
 
 //import images
-import tempImage from '../../images/instructions/car-red.png'
+import medium from '../../images/illustrations/money-medium-whole.svg'
 
 export default ({aro, visits, years, onChangeAro, onChangeVisits, onChangeYears}) => (
     <Step>
@@ -59,8 +59,8 @@ export default ({aro, visits, years, onChangeAro, onChangeVisits, onChangeYears}
             />
         </Calculation>
         <Illustration
-            src={tempImage}
-            alt={'This is a temporary image'}
+            src={medium}
+            alt={'Person standing in front of large piles of money'}
         />
     </Step>
 )

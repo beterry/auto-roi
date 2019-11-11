@@ -11,7 +11,7 @@ import Slider from '../Slider/Slider.component'
 import Total from '../Total/Total.component'
 
 //import images
-import tempImage from '../../images/instructions/car-red.png'
+import mediumImage from '../../images/illustrations/testimonials-medium-whole.svg'
 
 export default ({aro, visits, years, referrals, onChangeReferrals}) => (
     <Step>
@@ -41,8 +41,8 @@ export default ({aro, visits, years, referrals, onChangeReferrals}) => (
             />
         </Calculation>
         <Illustration
-            src={tempImage}
-            alt={'This is a temporary image'}
+            src={mediumImage}
+            alt={'People talking amongst eachother'}
         />
     </Step>
 )

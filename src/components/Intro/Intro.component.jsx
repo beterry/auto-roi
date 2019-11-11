@@ -4,7 +4,7 @@ import React from 'react'
 import styles from './Intro.module.css'
 
 //import images
-import sliders from '../../images/intro/sliders.png'
+import sliders from '../../images/illustrations/sliders.svg'
 
 export default () => (
     <div className={styles.intro}>

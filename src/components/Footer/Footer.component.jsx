@@ -4,7 +4,7 @@ import React from 'react'
 import styles from './Footer.module.css'
 
 //import images
-import logo from '../../images/logo/logo-color.png'
+import logo from '../../images/logo/MS_FullColor_2019.svg'
 
 export default () => (
     <div className={styles.footer}>

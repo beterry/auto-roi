@@ -11,7 +11,7 @@ import Slider from '../Slider/Slider.component'
 import Total from '../Total/Total.component'
 
 //import images
-import tempImage from '../../images/instructions/car-red.png'
+import illustration from '../../images/illustrations/total-lifetime.svg'
 
 export default ({aro, visits, years, referrals}) => (
     <Step>
@@ -39,8 +39,8 @@ export default ({aro, visits, years, referrals}) => (
             />
         </Calculation>
         <Illustration
-            src={tempImage}
-            alt={'This is a temporary image'}
+            src={illustration}
+            alt={'People sitting and standing beside huge piles of money'}
         />
     </Step>
 )

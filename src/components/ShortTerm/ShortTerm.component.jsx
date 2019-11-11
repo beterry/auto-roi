@@ -11,7 +11,7 @@ import Slider from '../Slider/Slider.component'
 import Total from '../Total/Total.component'
 
 //import images
-import tempImage from '../../images/instructions/car-red.png'
+import mediumImage from '../../images/illustrations/phones-medium-whole.svg'
 
 export default ({aro, quantity, redemptionRate, cost, onChangeRedemptionRate, onChangeQuantity}) => (
     <Step>
@@ -63,8 +63,8 @@ export default ({aro, quantity, redemptionRate, cost, onChangeRedemptionRate, on
             />
         </Calculation>
         <Illustration
-            src={tempImage}
-            alt={'This is a temporary image'}
+            src={mediumImage}
+            alt={'People calling your shop on their phones'}
         />
     </Step>
 )

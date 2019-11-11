@@ -11,7 +11,7 @@ import Slider from '../Slider/Slider.component'
 import Total from '../Total/Total.component'
 
 //import images
-import tempImage from '../../images/instructions/car-red.png'
+import illustration from '../../images/illustrations/money-pile.svg'
 
 export default ({aro, visits, years, referrals, quantity, redemptionRate, cost, retention, onChangeRetention}) => (
     <Step>
@@ -70,8 +70,8 @@ export default ({aro, visits, years, referrals, quantity, redemptionRate, cost, 
             />
         </Calculation>
         <Illustration
-            src={tempImage}
-            alt={'This is a temporary image'}
+            src={illustration}
+            alt={'Pile of money'}
         />
     </Step>
 )

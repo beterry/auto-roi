@@ -4,8 +4,8 @@ import React from 'react'
 import styles from './Instructions.module.css'
 
 //import images
-import blueCar from '../../images/instructions/car-blue.png'
-import redCar from '../../images/instructions/car-red.png'
+import blueCar from '../../images/illustrations/car-blue.svg'
+import redCar from '../../images/illustrations/car-red.svg'
 
 export default () => (
     <div className={styles.instructions}>
