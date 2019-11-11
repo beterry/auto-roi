@@ -12,7 +12,9 @@ export default ({color, title, children}) => {
             className={styles.calculation}
             style={style}
         >
-            <h2 className={styles.stepTitle}>{title}</h2>
+            <div className={styles.title}>
+                <h2>{title}</h2>
+            </div>
             {children}
         </div>
     )

@@ -12,3 +12,19 @@
     display: flex;
     justify-content: space-between;
 }
+
+.slider h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.slider h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0;
+    margin: 0;
+    line-height: 15px;
+    color: #002A42;
+}

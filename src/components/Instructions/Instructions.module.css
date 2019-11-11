@@ -27,8 +27,13 @@
 
 .chooseButton{
     padding: 15px 50px;
-    background: darkblue;
+    background: #002A42;
     color: white;
     border: none;
     border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+    letter-spacing: 0.48px;
 }

@@ -4,7 +4,16 @@
     padding: 20px 0;
 }
 
-.stepTitle{
+.title{
     width: 80%;
     margin: 0 auto;
+}
+
+.title h2{
+    max-width: 70%;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0;
+    color: #002A42;
 }
