@@ -1,0 +1,13 @@
+.footer{
+    text-align: center;
+}
+
+.footer button{
+    display: block;
+    padding: 15px 30px;
+    margin: 0 auto;
+    background: orange;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}

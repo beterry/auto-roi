@@ -12,6 +12,7 @@ import TotalLifetime from '../TotalLifetime/TotalLifetime.component'
 import ShortTerm from '../ShortTerm/ShortTerm.component'
 import LongTerm from '../LongTerm/LongTerm.component'
 import MoneyBank from '../MoneyBank/MoneyBank.component'
+import Footer from '../Footer/Footer.component'
 
 //import styles
 import styles from './App.module.css'
@@ -124,6 +125,7 @@ function App() {
         profitMargin={profitMargin}
         onChangeProfitMargin={changeProfitMargin}
       />
+      <Footer/>
     </Layout>
   )
 }
