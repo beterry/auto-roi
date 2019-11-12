@@ -1,0 +1,16 @@
+.left{
+    width: 25%;
+}
+
+.left p{
+    margin-bottom: 15px;
+}
+
+.readMore{
+    border-radius: 3px;
+    color: white;
+    border: none;
+    padding: 5px;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+}

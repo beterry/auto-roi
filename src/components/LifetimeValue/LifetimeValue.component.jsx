@@ -4,7 +4,7 @@ import React from 'react'
 
 //import components
 import Step from '../Step/Step.component'
-import LeftCopy from '../LeftCopy/LeftCopy.component'
+import Left from '../Left/Left.component'
 import Calculation from '../Calculation/Calculation.component'
 import Illustration from '../Illustration/Illustration.component'
 import Tip from '../Tip/Tip.component'
@@ -16,17 +16,22 @@ import medium from '../../images/illustrations/money-medium-whole.svg'
 
 export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChangeYears}) => (
     <Step>
-        <LeftCopy
+        <Left
             title={'STEP 1 OF 3'}
             color={color}
+            show={'We start by uncovering the real value of each new customer you acquire.'}
+            hidden={[
+                'It’s important you do not value your new customers solely on the amount spent on their first repair order or you will be overlooking the important, ongoing revenue from future repair orders that can only come over time.',
+                'Therefore, it’s critical we identify and assign the real value and revenue that each customer spends over the time they remain a customer at your shop AKA Lifetime Value of a Customer.'
+                ]}
         >
-            <p>We start by calculating the real value of each customer you aquire.</p>
             <Tip
+                color={color}
                 title={`Here's a Tip!`}
             >
-                <p>Click on any number to learn more. Or simply tap on the "?" icon.</p>
+                <p>Tap on any number to get an in-depth description or simply select the “?” icon.</p>
             </Tip>
-        </LeftCopy>
+        </Left>
         <Calculation
             color={color}
             title={'TOTAL LIFETIME VALUE OF ONE CUSTOMER'}
