@@ -7,7 +7,7 @@ import Step from '../Step/Step.component'
 import Left from '../Left/Left.component'
 import Tip from '../Tip/Tip.component'
 import Calculation from '../Calculation/Calculation.component'
-import Illustration from '../Illustration/Illustration.component'
+import Right from '../Right/Right.component'
 import Slider from '../Slider/Slider.component'
 import Total from '../Total/Total.component'
 
@@ -89,7 +89,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                 total={`${(((((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost) / cost).toFixed(2)}%`}
             />
         </Calculation>
-        <Illustration
+        <Right
             src={illustration}
             alt={'Pile of money'}
         />

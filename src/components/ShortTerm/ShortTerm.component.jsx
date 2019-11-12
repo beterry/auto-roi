@@ -7,7 +7,7 @@ import Step from '../Step/Step.component'
 import Left from '../Left/Left.component'
 import Tip from '../Tip/Tip.component'
 import Calculation from '../Calculation/Calculation.component'
-import Illustration from '../Illustration/Illustration.component'
+import Right from '../Right/Right.component'
 import Slider from '../Slider/Slider.component'
 import Total from '../Total/Total.component'
 
@@ -84,7 +84,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 total={`${(((aro * quantity * redemptionRate) - cost) / cost).toFixed(2)}%`}
             />
         </Calculation>
-        <Illustration
+        <Right
             src={mediumImage}
             alt={'People calling your shop on their phones'}
         />

@@ -6,7 +6,7 @@ import React from 'react'
 import Step from '../Step/Step.component'
 import Left from '../Left/Left.component'
 import Calculation from '../Calculation/Calculation.component'
-import Illustration from '../Illustration/Illustration.component'
+import Right from '../Right/Right.component'
 import Slider from '../Slider/Slider.component'
 import Total from '../Total/Total.component'
 
@@ -43,7 +43,7 @@ export default ({color, aro, visits, years, referrals}) => (
                 total={(aro * visits * years * referrals) + (aro * visits * years)}
             />
         </Calculation>
-        <Illustration
+        <Right
             src={illustration}
             alt={'People sitting and standing beside huge piles of money'}
         />

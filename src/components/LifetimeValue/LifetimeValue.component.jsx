@@ -6,7 +6,7 @@ import React from 'react'
 import Step from '../Step/Step.component'
 import Left from '../Left/Left.component'
 import Calculation from '../Calculation/Calculation.component'
-import Illustration from '../Illustration/Illustration.component'
+import Right from '../Right/Right.component'
 import Tip from '../Tip/Tip.component'
 import Slider from '../Slider/Slider.component'
 import Total from '../Total/Total.component'
@@ -24,14 +24,7 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                 'It’s important you do not value your new customers solely on the amount spent on their first repair order or you will be overlooking the important, ongoing revenue from future repair orders that can only come over time.',
                 'Therefore, it’s critical we identify and assign the real value and revenue that each customer spends over the time they remain a customer at your shop AKA Lifetime Value of a Customer.'
                 ]}
-        >
-            <Tip
-                color={color}
-                title={`Here's a Tip!`}
-            >
-                <p>Tap on any number to get an in-depth description or simply select the “?” icon.</p>
-            </Tip>
-        </Left>
+        />
         <Calculation
             color={color}
             title={'TOTAL LIFETIME VALUE OF ONE CUSTOMER'}
@@ -68,9 +61,16 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                 total={aro * visits * years}
             />
         </Calculation>
-        <Illustration
+        <Right
             src={medium}
             alt={'Person standing in front of large piles of money'}
-        />
+        >
+            <Tip
+                    color={color}
+                    title={`Here's a Tip!`}
+                >
+                    <p>Tap on any number to get an in-depth description or simply select the “?” icon.</p>
+            </Tip>
+        </Right>
     </Step>
 )
