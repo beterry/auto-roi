@@ -4,7 +4,7 @@ import React from 'react'
 
 //import components
 import Step from '../Step/Step.component'
-import LeftCopy from '../LeftCopy/LeftCopy.component'
+import Left from '../Left/Left.component'
 import Calculation from '../Calculation/Calculation.component'
 import Illustration from '../Illustration/Illustration.component'
 import Slider from '../Slider/Slider.component'
@@ -15,12 +15,14 @@ import illustration from '../../images/illustrations/total-lifetime.svg'
 
 export default ({color, aro, visits, years, referrals}) => (
     <Step>
-        <LeftCopy
+        <Left
             title={'STEP 3 OF 3'}
             color={color}
-        >
-            <p>Using your shops numbers entered above, we are able to calculate the Total Lifetime Value of each of your customers.</p>
-        </LeftCopy>
+            show={['Using your shops numbers entered above we are able to calculate the Total Lifetime Value of each of your customers.']}
+            hidden={[
+                'In other words the total amount of potential revenue generated from each new customer over the timespan they remain a customer plus the addition of the important revenue generated from these customer referrals.'
+            ]}
+        />
         <Calculation
             color={color}
             title={'TOTAL LIFETIME VALUE'}

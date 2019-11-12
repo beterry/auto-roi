@@ -8,9 +8,9 @@ export default ({color, title, show, hidden, children}) => {
     return(
         <div className={styles.left}>
             <h3 style={{color}}>{title}</h3>
-            <p>{show}</p>
+            {show.map((para, index) => <p key={`${index} ${title} 1`}>{para}</p>)}
             {showMore ?
-                hidden.map((para, index) => <p key={`${index} ${title}`}>{para}</p>):
+                hidden.map((para, index) => <p key={`${index} ${title} 2`}>{para}</p>):
                 undefined
             }
             {hidden ?

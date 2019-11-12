@@ -15,8 +15,8 @@ import LongTerm from '../LongTerm/LongTerm.component'
 import MoneyBank from '../MoneyBank/MoneyBank.component'
 import Footer from '../Footer/Footer.component'
 
-//import styles
-import styles from './App.module.css'
+// import styles
+// import styles from './App.module.css'
 
 function App() {
 

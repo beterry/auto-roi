@@ -4,7 +4,7 @@ import React from 'react'
 
 //import components
 import Step from '../Step/Step.component'
-import LeftCopy from '../LeftCopy/LeftCopy.component'
+import Left from '../Left/Left.component'
 import Calculation from '../Calculation/Calculation.component'
 import Illustration from '../Illustration/Illustration.component'
 import Slider from '../Slider/Slider.component'
@@ -15,13 +15,14 @@ import mediumImage from '../../images/illustrations/pig-medium.svg'
 
 export default ({color, aro, visits, years, referrals, quantity, redemptionRate, cost, retention, profitMargin, onChangeProfitMargin}) => (
     <Step>
-        <LeftCopy
+        <Left
             title={'STEP 3 OF 3'}
             color={color}
-        >
-            <p>Revenue & Percentages are great, however, all that matters at the end of the day is how much you take to the bank.</p>
-            <p>In order to calculate the net profits generated, simply select your shops net profit margins from your latest P&L statements.</p>
-        </LeftCopy>
+            show={[
+                'Revenue & Percentages are great, however, all that matters at the end of the day is how much you take to the bank in the form of NET PROFITS.',
+                'In order to calculate the Net Profits generated, simply select your shops net profit margins from your latest P&L statement.'
+            ]}
+        />
         <Calculation
             color={color}
             title={'HOW MUCH MONEY ARE YOU TAKING TO THE BANK?'}

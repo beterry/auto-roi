@@ -19,7 +19,7 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
         <Left
             title={'STEP 1 OF 3'}
             color={color}
-            show={'We start by uncovering the real value of each new customer you acquire.'}
+            show={['We start by uncovering the real value of each new customer you acquire.']}
             hidden={[
                 'It’s important you do not value your new customers solely on the amount spent on their first repair order or you will be overlooking the important, ongoing revenue from future repair orders that can only come over time.',
                 'Therefore, it’s critical we identify and assign the real value and revenue that each customer spends over the time they remain a customer at your shop AKA Lifetime Value of a Customer.'

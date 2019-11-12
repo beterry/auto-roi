@@ -4,7 +4,8 @@ import React from 'react'
 
 //import components
 import Step from '../Step/Step.component'
-import LeftCopy from '../LeftCopy/LeftCopy.component'
+import Left from '../Left/Left.component'
+import Tip from '../Tip/Tip.component'
 import Calculation from '../Calculation/Calculation.component'
 import Illustration from '../Illustration/Illustration.component'
 import Slider from '../Slider/Slider.component'
@@ -15,12 +16,25 @@ import mediumImage from '../../images/illustrations/phones-medium-whole.svg'
 
 export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionRate, onChangeQuantity}) => (
     <Step>
-        <LeftCopy
+        <Left
             title={'STEP 1 OF 3'}
             color={color}
+            show={['Now that you have you have entered your ARO Average Repair Order in step 1 we can begin to calculate your short-term ROI on your direct mail campaign.']}
+            hidden={['We define Short term ROI as revenue that comes in within the first 3-6 months of your last mailer being sent out. It’s important you remain patient and give your direct mail marketing time to work. Remember someone that receives your direct mail today, might not have a broken car until months down the line. This is proven out time and time again with call tracking.']}
         >
-            <p>Now, using the Average Repair Order you specified in Step 1 in Section 1, we can calculate your short term roi on your direct mail campaign.</p>
-        </LeftCopy>
+            <Tip
+                color={color}
+                title={'Redemption Rate %'}
+            >
+                <p>1/2% Is the minimum targeted benchmark redemption rate. That said, with the right creative, mailing list, CTA and strategy, this number can easily be exceeded.</p>
+            </Tip>
+            <Tip
+                color={color}
+                title={'Cost of Mailer'}
+            >
+                <p>This is based on Mail Sharks all-inclusive price for a 5.5x10.5 postcard and quantity you have selected to mail.</p>
+            </Tip>
+        </Left>
         <Calculation
             color={color}
             title={'SHORT TERM DIRECT MAIL ROI'}
