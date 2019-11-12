@@ -16,7 +16,7 @@ export default ({src, alt, children}) => {
     return(
         <div className={styles.right} style={propStyles}>
             {children}
-            <img src={src} alt={alt}/>
+            {src ? <img src={src} alt={alt}/> : undefined}
         </div>
     )
 }
