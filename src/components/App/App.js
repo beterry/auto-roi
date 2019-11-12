@@ -87,6 +87,7 @@ function App() {
       />
       <Arrows />
       <Referrals
+        color={'#00C25F'}
         aro={aro}
         visits={visits}
         years={years}
@@ -95,6 +96,7 @@ function App() {
       />
       <Arrows />
       <TotalLifetime
+        color={'#9055A2'}
         aro={aro}
         visits={visits}
         years={years}
@@ -102,6 +104,7 @@ function App() {
       />
       <Arrows />
       <ShortTerm
+        color={'#FF8C00'}
         aro={aro}
         quantity={quantity}
         redemptionRate={redemptionRate}
@@ -111,6 +114,7 @@ function App() {
       />
       <Arrows />
       <LongTerm
+        color={'#0067A4'}
         aro={aro}
         visits={visits}
         years={years}
@@ -123,6 +127,7 @@ function App() {
       />
       <Arrows />
       <MoneyBank
+        color={'#F26536'}
         aro={aro}
         visits={visits}
         years={years}

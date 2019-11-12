@@ -13,27 +13,30 @@ import Total from '../Total/Total.component'
 //import images
 import illustration from '../../images/illustrations/total-lifetime.svg'
 
-export default ({aro, visits, years, referrals}) => (
+export default ({color, aro, visits, years, referrals}) => (
     <Step>
         <LeftCopy
             title={'STEP 3 OF 3'}
-            color={'purple'}
+            color={color}
         >
             <p>Using your shops numbers entered above, we are able to calculate the Total Lifetime Value of each of your customers.</p>
         </LeftCopy>
         <Calculation
-            color={'purple'}
+            color={color}
             title={'TOTAL LIFETIME VALUE'}
         >
             <Slider
+                color={'#69B8EB'}
                 title={'Value of One Customer'}
                 total={aro * visits * years}
             />
             <Slider
+                color={'#00C25F'}
                 title={'Revenue from Referrals'}
                 total={aro * visits * years * referrals}
             />
             <Total
+                color={color}
                 equation={`$${aro * visits * years} + $${aro * visits * years * referrals} =`}
                 total={(aro * visits * years * referrals) + (aro * visits * years)}
             />
