@@ -1,16 +1,18 @@
 .slider{
     width: 80%;
-    margin: 0 auto;
+    margin:  20px auto;
 }
 
 .total{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .options{
     display: flex;
     justify-content: space-between;
+    margin: 10px 0;
 }
 
 .slider h2{

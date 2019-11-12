@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 
 //import components
 import Layout from '../Layout/Layout.component'
+import Screen from '../Screen/Screen.component'
 import Header from '../Header/Header.component'
 import Intro from '../Intro/Intro.component'
 import Instructions from '../Instructions/Instructions.component'
@@ -69,11 +70,14 @@ function App() {
 
   return (
     <Layout>
-      <Header />
-      <Intro />
-      <Instructions />
-      <Arrows />
-      <LifetimeValue 
+      <Screen>
+        <Header />
+        <Intro />
+        <Instructions />
+        <Arrows />
+      </Screen>
+      <LifetimeValue
+        color={'#69B8EB'}
         aro={aro}
         visits={visits}
         years={years}
@@ -81,6 +85,7 @@ function App() {
         onChangeVisits={changeVisits}  
         onChangeYears={changeYears}
       />
+      <Arrows />
       <Referrals
         aro={aro}
         visits={visits}
@@ -88,12 +93,14 @@ function App() {
         referrals={referrals}
         onChangeReferrals={changeReferrals}
       />
+      <Arrows />
       <TotalLifetime
         aro={aro}
         visits={visits}
         years={years}
         referrals={referrals}
       />
+      <Arrows />
       <ShortTerm
         aro={aro}
         quantity={quantity}
@@ -102,6 +109,7 @@ function App() {
         onChangeRedemptionRate={changeRedemptionRate}
         cost={cost}
       />
+      <Arrows />
       <LongTerm
         aro={aro}
         visits={visits}
@@ -113,6 +121,7 @@ function App() {
         retention={retention}
         onChangeRetention={changeRetention}
       />
+      <Arrows />
       <MoneyBank
         aro={aro}
         visits={visits}

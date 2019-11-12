@@ -4,7 +4,7 @@ import React from 'react'
 import styles from './Arrows.module.css'
 
 //import images
-import arrows from '../../images/arrows/arrows.png'
+import arrows from '../../images/arrows/arrows.svg'
 
 export default () => (
     <div className={styles.arrows}>
