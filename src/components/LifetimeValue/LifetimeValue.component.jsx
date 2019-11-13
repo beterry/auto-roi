@@ -42,6 +42,15 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
             <Calculation
                 color={color}
                 title={'TOTAL LIFETIME VALUE OF ONE CUSTOMER'}
+                tip={[
+                    'Average Repair Order (ARO)',
+                    'multiplied by (x)',
+                    'Number of Visits A Customer Makes Per Year',
+                    'multiplied by (x)',
+                    'Average Number of Years You Keep a Customer',
+                    'equals (=)',
+                    'Value of One Customer'
+                ]}
             >
                 <Slider
                     color={color}

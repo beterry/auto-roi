@@ -51,6 +51,19 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
             <Calculation
                 color={color}
                 title={'SHORT TERM DIRECT MAIL ROI'}
+                tip={[
+                    'Quantity Mailed',
+                    'multiplied by (x)',
+                    'Redemption Rate %',
+                    'multiplied by (x)',
+                    'Average Repair Cost (ARO)',
+                    'minus (-)',
+                    'Less Estimated Cost of Mailer',
+                    'divided by (/)',
+                    'Less Estimated Cost of Mailer',
+                    'equals (=)',
+                    'Short Term Direct Mail ROI'
+                ]}
             >
                 <Slider
                     color={color}

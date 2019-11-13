@@ -18,11 +18,11 @@ import large from '../../images/illustrations/testimonials-large-whole.svg'
 export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
     //determine what illustration to display
     let illustration
-    if (referrals === 0){
+    if (referrals == 0){
         illustration = undefined
-    } else if (referrals === 1){
+    } else if (referrals == 1){
         illustration = small
-    } else if (referrals === 2){
+    } else if (referrals == 2){
         illustration = medium
     }else {
         illustration = large
@@ -43,6 +43,13 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
             <Calculation
                 color={color}
                 title={'REVENUE FROM NEW CUSTOMER REFERRALS'}
+                tip={[
+                    'Value of One of Your Customers',
+                    'multiplied by (x)',
+                    'Average Number of Referrals Made By One Customer',
+                    'equals (=)',
+                    'Revenue from Referrals'
+                ]}
             >
                 <Slider
                     color={'#69B8EB'}

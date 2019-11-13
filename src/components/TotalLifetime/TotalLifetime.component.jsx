@@ -26,6 +26,13 @@ export default ({color, aro, visits, years, referrals}) => (
         <Calculation
             color={color}
             title={'TOTAL LIFETIME VALUE'}
+            tip={[
+                'Value of One Customer',
+                'plus (+)',
+                'Revenue From Referrals',
+                'equals (=)',
+                'Total Lifetime Value'
+            ]}
         >
             <Slider
                 color={'#69B8EB'}

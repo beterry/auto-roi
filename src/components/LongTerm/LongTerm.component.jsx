@@ -35,6 +35,21 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
         <Calculation
             color={color}
             title={'LONG TERM DIRECT MAIL ROI'}
+            tip={[
+                'Quantity Mailed',
+                'multiplied by (x)',
+                '% Return',
+                'multiplied by (x)',
+                'Retention Rate',
+                'multiplied by (x)',
+                'Total Lifetime Value of Your Customer',
+                'minus (-)',
+                'Less Estimated Cost of Mailer',
+                'divided by (/)',
+                'Less Estimated Cost of Mailer',
+                'equals (=)',
+                'Long Term Direct Mail ROI'
+            ]}
         >
             <Slider
                 color={'#FF8C00'}

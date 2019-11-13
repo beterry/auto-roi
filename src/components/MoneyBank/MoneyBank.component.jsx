@@ -20,7 +20,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
     let illustration
     if (profitMargin < 0.4){
         illustration = small
-    } else if (profitMargin === 0.4 || profitMargin === 0.5 ){
+    } else if (profitMargin == 0.4 || profitMargin == 0.5 ){
         illustration = medium
     } else{
         illustration = large
@@ -41,6 +41,13 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
             <Calculation
                 color={color}
                 title={'HOW MUCH MONEY ARE YOU TAKING TO THE BANK?'}
+                tip={[
+                    'Your Shops Net Profit Margin',
+                    'multiplied by (x)',
+                    'Potential Net Revenue',
+                    'equals (=)',
+                    'How much money you take to the bank'
+                ]}
             >
                 <Slider
                     color={'#0067A4'}
