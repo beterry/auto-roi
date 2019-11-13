@@ -31,7 +31,7 @@ const Slider = ({color, title, total, options=[], onChange, tip}) => {
                 }
                 {tip && showTip ?
                     <div className={styles.tip}>
-                        {tip.map((line) => <p>{line}</p>)}
+                        {tip.map((line, index) => <p key={`${index} ${line}`}>{line}</p>)}
                     </div> :
                     undefined
                 }

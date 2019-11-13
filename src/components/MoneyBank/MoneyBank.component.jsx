@@ -20,7 +20,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
     let illustration
     if (profitMargin < 0.4){
         illustration = small
-    } else if (profitMargin == 0.4 || profitMargin ==0.5 ){
+    } else if (profitMargin === 0.4 || profitMargin === 0.5 ){
         illustration = medium
     } else{
         illustration = large
