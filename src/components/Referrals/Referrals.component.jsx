@@ -15,6 +15,9 @@ import small from '../../images/illustrations/testimonials-small-whole.svg'
 import medium from '../../images/illustrations/testimonials-medium-whole.svg'
 import large from '../../images/illustrations/testimonials-large-whole.svg'
 
+//improt numeral
+import numeral from 'numeral'
+
 export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
     //determine what illustration to display
     let illustration
@@ -27,6 +30,9 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
     }else {
         illustration = large
     }
+
+    let total = aro * visits * years * referrals
+    let formatTotal = numeral(total).format('$0,0')
 
     return(
         <Step>
@@ -54,7 +60,7 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
                 <Slider
                     color={'#69B8EB'}
                     title={'Total Lifetime Value of One Customer'}
-                    total={aro * visits * years}
+                    total={numeral(aro * visits * years).format('$0,0')}
                     tip={[
                         'Calculated in Step 1',
                         'Yearly Value of Each Customer',
@@ -75,7 +81,7 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
                 <Total
                     color={color}
                     equation={`$${aro * visits * years} x ${referrals} =`}
-                    total={aro * visits * years * referrals}
+                    total={formatTotal}
                     tip={[
                         'Value of One Customer',
                         'multiplied by (x)',

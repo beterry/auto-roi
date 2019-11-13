@@ -15,6 +15,9 @@ import small from '../../images/illustrations/pig-small.svg'
 import medium from '../../images/illustrations/pig-medium.svg'
 import large from '../../images/illustrations/pig-large.svg'
 
+//import libraries
+import numeral from 'numeral'
+
 export default ({color, aro, visits, years, referrals, quantity, redemptionRate, cost, retention, profitMargin, onChangeProfitMargin}) => {
     //determine what illustration to display
     let illustration
@@ -26,7 +29,8 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
         illustration = large
     }
 
-    let total = ((((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost) * profitMargin
+    let potentialNetRevenue = (((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost
+    let total = potentialNetRevenue * profitMargin
 
     return(
         <Step>
@@ -52,7 +56,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                 <Slider
                     color={'#0067A4'}
                     title={'Potential Net Revenue'}
-                    total={(((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost}
+                    total={numeral(potentialNetRevenue).format('$0,0')}
                     tip={[
                         'Calculated in Step 5',
                         'Less Estimated Cost of Mailer',
@@ -63,7 +67,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                 <Slider
                     color={color}
                     title={'Your Shops Net Profit Margin'}
-                    total={profitMargin}
+                    total={numeral(profitMargin).format('0%')}
                     options={[0.3, 0.4, 0.5, 0.6, 0.7]}
                     onChange={onChangeProfitMargin}
                     tip={[
@@ -73,7 +77,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                 <Total
                     color={color}
                     equation={`$${(((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost} x $${profitMargin} =`}
-                    total={Math.round(total)}
+                    total={numeral(total).format('$0,0')}
                     tip={[
                         'Your Shops Net Profit Margin',
                         'multiplied by (x)',

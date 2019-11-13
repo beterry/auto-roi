@@ -14,145 +14,157 @@ import Total from '../Total/Total.component'
 //import images
 import illustration from '../../images/illustrations/money-pile.svg'
 
-export default ({color, aro, visits, years, referrals, quantity, redemptionRate, cost, retention, onChangeRetention}) => (
-    <Step>
-        <Left
-            title={'STEP 2 OF 3'}
-            color={color}
-            show={[
-                'Although Redemption Rates & Revenue are critical key performance indicators, what is of most important are your NET PROFITS and how much money you actually take to the bank.',
-                'It is quite possible to get a lower redemption rate but have a higher ROI due to higher dollar repair orders. Remember, you don’t take Percentages to the bank you take dollars to the bank.',
-                'In order to calculate your potential net profits generated from your direct mail campaigns, simply select our shops net profit margin based on your latest P&L.'
-            ]}
-        >
-            <Tip
+//import libraries
+import numeral from 'numeral'
+
+export default ({color, aro, visits, years, referrals, quantity, redemptionRate, cost, retention, onChangeRetention}) => {
+    let increasedCarCount = quantity * redemptionRate
+    let carsRetained = increasedCarCount * retention
+    let lifetimeValue = aro * visits * years
+    let longTermRevenue = lifetimeValue * carsRetained
+    let potentialNetRevenue = longTermRevenue - cost
+    let total = potentialNetRevenue / cost
+
+    return(
+        <Step>
+            <Left
+                title={'STEP 2 OF 3'}
                 color={color}
-                title={'Cost of Mailer'}
+                show={[
+                    'Although Redemption Rates & Revenue are critical key performance indicators, what is of most important are your NET PROFITS and how much money you actually take to the bank.',
+                    'It is quite possible to get a lower redemption rate but have a higher ROI due to higher dollar repair orders. Remember, you don’t take Percentages to the bank you take dollars to the bank.',
+                    'In order to calculate your potential net profits generated from your direct mail campaigns, simply select our shops net profit margin based on your latest P&L.'
+                ]}
             >
-                <p>This is based on Mail Sharks all-inclusive price for a 5.5x10.5 postcard and quantity you have selected to mail.</p>
-            </Tip>
-        </Left>
-        <Calculation
-            color={color}
-            title={'LONG TERM DIRECT MAIL ROI'}
-            tip={[
-                'Quantity Mailed',
-                'multiplied by (x)',
-                '% Return',
-                'multiplied by (x)',
-                'Retention Rate',
-                'multiplied by (x)',
-                'Total Lifetime Value of Your Customer',
-                'minus (-)',
-                'Less Estimated Cost of Mailer',
-                'divided by (/)',
-                'Less Estimated Cost of Mailer',
-                'equals (=)',
-                'Long Term Direct Mail ROI'
-            ]}
-        >
-            <Slider
-                color={'#FF8C00'}
-                title={'Quantity Mailed'}
-                total={quantity}
+                <Tip
+                    color={color}
+                    title={'Cost of Mailer'}
+                >
+                    <p>This is based on Mail Sharks all-inclusive price for a 5.5x10.5 postcard and quantity you have selected to mail.</p>
+                </Tip>
+            </Left>
+            <Calculation
+                color={color}
+                title={'LONG TERM DIRECT MAIL ROI'}
                 tip={[
-                    'Specified in Step 4',
-                    'This was the number of mailers chosen in step 4.'
-                ]}
-            />
-            <Slider
-                color={'#FF8C00'}
-                title={'Redemption Rate %'}
-                total={redemptionRate}
-                tip={[
-                    'Specified in Step 4',
-                    'The percentage of how many offers are redeemed.'
-                ]}
-            />
-            <Slider
-                color={'#FF8C00'}
-                title={'Increased Car Count'}
-                total={quantity * redemptionRate}
-                tip={[
-                    'Calculated in Step 4',
                     'Quantity Mailed',
                     'multiplied by (x)',
-                    'Redemption Rate %'
-                ]}
-            />
-            <Slider
-                color={color}
-                title={'Customer Retention Rate'}
-                total={retention}
-                options={[0.6, 0.7, 0.8, 0.9, 1]}
-                onChange={onChangeRetention}
-                tip={[
-                    'What % of your customers remain customers after their first visit?'
-                ]}
-            />
-            <Slider
-                color={color}
-                title={'Cars Retained'}
-                total={retention * (quantity * redemptionRate)}
-                tip={[
-                    'Increased Car Count',
+                    '% Return',
                     'multiplied by (x)',
-                    'Customer Retention Rate'
-                ]}
-            />
-            <Slider
-                color={'#9055A2'}
-                title={'Total Lifetime Value of Your Customer'}
-                total={(aro * visits * years * referrals) + (aro * visits * years)}
-                tip={[
-                    'Calculated in Step 3',
-                    'Value of One Customer',
-                    'plus (+)',
-                    'Revenue From Referrals'
-                ]}
-            />
-            <Slider
-                color={color}
-                title={'Long Term Revenue'}
-                total={((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))}
-                tip={[
+                    'Retention Rate',
+                    'multiplied by (x)',
                     'Total Lifetime Value of Your Customer',
-                    'multiplied by (x)',
-                    'Cars Retained'
-                ]}
-            />
-            <Slider
-                color={color}
-                title={'Less Estimated Cost of Mailer'}
-                total={cost}
-                tip={[
-                    'This number represents an estimated cost of an oversized postcard 5.5x10.5 based on the quantity chosen.'
-                ]}
-            />
-            <Slider
-                color={color}
-                title={'Potential Net Revenue'}
-                total={(((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost}
-                tip={[
+                    'minus (-)',
                     'Less Estimated Cost of Mailer',
-                    'subtracted from (-)',
-                    'Long Term Revenue'
-                ]}
-            />
-            <Total
-                color={color}
-                equation={`$${(((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost} - $${cost} =`}
-                total={`${(((((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost) / cost).toFixed(2)}%`}
-                tip={[
-                    'Potential Net Revenue',
                     'divided by (/)',
-                    'Less Estimated Cost of Mailer'
+                    'Less Estimated Cost of Mailer',
+                    'equals (=)',
+                    'Long Term Direct Mail ROI'
                 ]}
+            >
+                <Slider
+                    color={'#FF8C00'}
+                    title={'Quantity Mailed'}
+                    total={numeral(quantity).format('0,0')}
+                    tip={[
+                        'Specified in Step 4',
+                        'This was the number of mailers chosen in step 4.'
+                    ]}
+                />
+                <Slider
+                    color={'#FF8C00'}
+                    title={'Redemption Rate %'}
+                    total={numeral(redemptionRate).format('0.0%')}
+                    tip={[
+                        'Specified in Step 4',
+                        'The percentage of how many offers are redeemed.'
+                    ]}
+                />
+                <Slider
+                    color={'#FF8C00'}
+                    title={'Increased Car Count'}
+                    total={numeral(increasedCarCount).format('0,0')}
+                    tip={[
+                        'Calculated in Step 4',
+                        'Quantity Mailed',
+                        'multiplied by (x)',
+                        'Redemption Rate %'
+                    ]}
+                />
+                <Slider
+                    color={color}
+                    title={'Customer Retention Rate'}
+                    total={numeral(retention).format('0%')}
+                    options={[0.6, 0.7, 0.8, 0.9, 1]}
+                    onChange={onChangeRetention}
+                    tip={[
+                        'What % of your customers remain customers after their first visit?'
+                    ]}
+                />
+                <Slider
+                    color={color}
+                    title={'Cars Retained'}
+                    total={carsRetained}
+                    tip={[
+                        'Increased Car Count',
+                        'multiplied by (x)',
+                        'Customer Retention Rate'
+                    ]}
+                />
+                <Slider
+                    color={'#9055A2'}
+                    title={'Total Lifetime Value of Your Customer'}
+                    total={numeral(lifetimeValue).format('$0,0')}
+                    tip={[
+                        'Calculated in Step 3',
+                        'Value of One Customer',
+                        'plus (+)',
+                        'Revenue From Referrals'
+                    ]}
+                />
+                <Slider
+                    color={color}
+                    title={'Long Term Revenue'}
+                    total={numeral(longTermRevenue).format('$0,0')}
+                    tip={[
+                        'Total Lifetime Value of Your Customer',
+                        'multiplied by (x)',
+                        'Cars Retained'
+                    ]}
+                />
+                <Slider
+                    color={color}
+                    title={'Less Estimated Cost of Mailer'}
+                    total={numeral(cost).format('$0,0')}
+                    tip={[
+                        'This number represents an estimated cost of an oversized postcard 5.5x10.5 based on the quantity chosen.'
+                    ]}
+                />
+                <Slider
+                    color={color}
+                    title={'Potential Net Revenue'}
+                    total={numeral(potentialNetRevenue).format('$0,0')}
+                    tip={[
+                        'Less Estimated Cost of Mailer',
+                        'subtracted from (-)',
+                        'Long Term Revenue'
+                    ]}
+                />
+                <Total
+                    color={color}
+                    equation={`${numeral(potentialNetRevenue).format('$0,0')} / ${numeral(cost).format('$0,0')} =`}
+                    total={numeral(total).format('0.00%')}
+                    tip={[
+                        'Potential Net Revenue',
+                        'divided by (/)',
+                        'Less Estimated Cost of Mailer'
+                    ]}
+                />
+            </Calculation>
+            <Right
+                src={illustration}
+                alt={'Pile of money'}
             />
-        </Calculation>
-        <Right
-            src={illustration}
-            alt={'Pile of money'}
-        />
-    </Step>
-)
+        </Step>
+    )
+}

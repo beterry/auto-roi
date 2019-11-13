@@ -16,8 +16,11 @@ import small from '../../images/illustrations/phones-small-whole.svg'
 import medium from '../../images/illustrations/phones-medium-whole.svg'
 import large from '../../images/illustrations/phones-large-whole.svg'
 
+//import libraries
+import numeral from 'numeral'
+
 export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionRate, onChangeQuantity}) => {
-    let total = (((aro * quantity * redemptionRate) - cost) / cost)
+    let total = ((aro * quantity * redemptionRate) - cost) / cost
     let illustration
     if (total <= 7) {
         illustration = small
@@ -68,7 +71,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 <Slider
                     color={color}
                     title={'Quantity Mailed'}
-                    total={quantity}
+                    total={numeral(quantity).format(0,0)}
                     options={[1000, 5000, 10000, 15000, 20000]}
                     onChange={onChangeQuantity}
                     tip={[
@@ -78,7 +81,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 <Slider
                     color={color}
                     title={'Redemption Rate %'}
-                    total={redemptionRate}
+                    total={numeral(redemptionRate).format('0.0%')}
                     options={[0.005, 0.01, 0.02, 0.03, 0.05]}
                     onChange={onChangeRedemptionRate}
                     tip={[
@@ -98,7 +101,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 <Slider
                     color={'#69B8EB'}
                     title={'Average Repair Cost'}
-                    total={aro}
+                    total={numeral(aro).format('$0,0')}
                     tip={[
                         'Specified in Step 1'
                     ]}
@@ -106,7 +109,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 <Slider
                     color={color}
                     title={'Gross Revenue'}
-                    total={aro * (quantity * redemptionRate)}
+                    total={numeral(aro * (quantity * redemptionRate)).format('$0,0')}
                     tip={[
                         'Increased Car Count',
                         'multiplied by (x)',
@@ -116,7 +119,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 <Slider
                     color={color}
                     title={'Less Estimated Cost of Mailer'}
-                    total={cost}
+                    total={numeral(cost).format('$0,0')}
                     tip={[
                         'This number represents an estimated cost of an oversized postcard 5.5x10.5 based on the quantity chosen.'
                     ]}
@@ -124,7 +127,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 <Slider
                     color={color}
                     title={'Net Revenue'}
-                    total={(aro * quantity * redemptionRate) - cost}
+                    total={numeral((aro * quantity * redemptionRate) - cost).format('$0,0')}
                     tip={[
                         'Less Estimated Cost of Mailer',
                         'subtracted from (-)'
@@ -132,8 +135,8 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 />
                 <Total
                     color={color}
-                    equation={`$${(aro * quantity * redemptionRate) - cost} - $${cost} =`}
-                    total={`${total.toFixed(2)}%`}
+                    equation={`${numeral((aro * quantity * redemptionRate) - cost).format('$0,0')} / ${numeral(cost).format('$0,0')} =`}
+                    total={numeral(total).format('0.00%')}
                     tip={[
                     'Net Revenue',
                     'divided by (/)',

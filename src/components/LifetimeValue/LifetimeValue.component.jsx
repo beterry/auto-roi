@@ -16,6 +16,9 @@ import small from '../../images/illustrations/money-small-whole.svg'
 import medium from '../../images/illustrations/money-medium-whole.svg'
 import large from '../../images/illustrations/money-large-whole.svg'
 
+//import numeral
+import numeral from 'numeral'
+
 export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChangeYears}) => {
     // determine what illustration should be displayed
     let total = aro * visits * years
@@ -27,6 +30,9 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
     } else{
         illustration = large
     }
+    
+    //format numbers
+    let formatTotal = numeral(total).format('$0,0')
 
     return(
         <Step>
@@ -55,7 +61,7 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                 <Slider
                     color={color}
                     title={'Average Repair Order (ARO)'}
-                    total={aro}
+                    total={numeral(aro).format('$0,0')}
                     options={[100, 300, 573, 750, 1000]}
                     onChange={onChangeAro}
                     tip={[
@@ -75,7 +81,7 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                 <Slider
                     color={color}
                     title={'Yearly Value of Each Customer'}
-                    total={aro * visits}
+                    total={numeral(aro * visits).format('$0,0')}
                     tip={[
                         'Average Repair Order (ARO)',
                         'multiplied by (x)',
@@ -95,7 +101,7 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                 <Total
                     color={color}
                     equation={`$${aro * visits} x ${years} =`}
-                    total={total}
+                    total={formatTotal}
                     tip={[
                         'Yearly Value of Each Customer',
                         'multiplied by (x)',
