@@ -48,6 +48,12 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
                     color={'#69B8EB'}
                     title={'Total Lifetime Value of One Customer'}
                     total={aro * visits * years}
+                    tip={[
+                        'Calculated in Step 1',
+                        'Yearly Value of Each Customer',
+                        'multiplied by (x)',
+                        'Average Number of Years You Keep a Customer'
+                    ]}
                 />
                 <Slider
                     color={color}
@@ -55,11 +61,19 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
                     total={referrals}
                     options={[0, 1, 2, 5, 10]}
                     onChange={onChangeReferrals}
+                    tip={[
+                        'On average, how many customers do you obtain from a happy customer’s recommendation?'
+                    ]}
                 />
                 <Total
                     color={color}
                     equation={`$${aro * visits * years} x ${referrals} =`}
                     total={aro * visits * years * referrals}
+                    tip={[
+                        'Value of One Customer',
+                        'multiplied by (x)',
+                        'Average Number of Referrals Received by One Customer'
+                    ]}
                 />
             </Calculation>
             <Right

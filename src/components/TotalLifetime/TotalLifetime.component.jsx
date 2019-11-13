@@ -31,16 +31,33 @@ export default ({color, aro, visits, years, referrals}) => (
                 color={'#69B8EB'}
                 title={'Value of One Customer'}
                 total={aro * visits * years}
+                tip={[
+                    'Calculated in Step 1',
+                    'Yearly Value of Each Customer',
+                    'multiplied by (x)',
+                    'Average Number of Years You Keep a Customer'
+                ]}
             />
             <Slider
                 color={'#00C25F'}
                 title={'Revenue from Referrals'}
                 total={aro * visits * years * referrals}
+                tip={[
+                    'Calculated in Step 2',
+                    'Value of One of Your Customers',
+                    'multiplied by (x)',
+                    'Average Number of Referrals Made by One Customer'
+                ]}
             />
             <Total
                 color={color}
                 equation={`$${aro * visits * years} + $${aro * visits * years * referrals} =`}
                 total={(aro * visits * years * referrals) + (aro * visits * years)}
+                tip={[
+                    'Value of One Customer',
+                    'plus (+)',
+                    'Revenue From Referrals'
+                ]}
             />
         </Calculation>
         <Right

@@ -40,53 +40,99 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                 color={'#FF8C00'}
                 title={'Quantity Mailed'}
                 total={quantity}
+                tip={[
+                    'Specified in Step 4',
+                    'This was the number of mailers chosen in step 4.'
+                ]}
             />
             <Slider
                 color={'#FF8C00'}
                 title={'Redemption Rate %'}
                 total={redemptionRate}
+                tip={[
+                    'Specified in Step 4',
+                    'The percentage of how many offers are redeemed.'
+                ]}
             />
             <Slider
                 color={'#FF8C00'}
                 title={'Increased Car Count'}
                 total={quantity * redemptionRate}
+                tip={[
+                    'Calculated in Step 4',
+                    'Quantity Mailed',
+                    'multiplied by (x)',
+                    'Redemption Rate %'
+                ]}
             />
             <Slider
                 color={color}
-                title={'Retention Rate'}
+                title={'Customer Retention Rate'}
                 total={retention}
                 options={[0.6, 0.7, 0.8, 0.9, 1]}
                 onChange={onChangeRetention}
+                tip={[
+                    'What % of your customers remain customers after their first visit?'
+                ]}
             />
             <Slider
                 color={color}
                 title={'Cars Retained'}
                 total={retention * (quantity * redemptionRate)}
+                tip={[
+                    'Increased Car Count',
+                    'multiplied by (x)',
+                    'Customer Retention Rate'
+                ]}
             />
             <Slider
                 color={'#9055A2'}
                 title={'Total Lifetime Value of Your Customer'}
                 total={(aro * visits * years * referrals) + (aro * visits * years)}
+                tip={[
+                    'Calculated in Step 3',
+                    'Value of One Customer',
+                    'plus (+)',
+                    'Revenue From Referrals'
+                ]}
             />
             <Slider
                 color={color}
                 title={'Long Term Revenue'}
                 total={((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))}
+                tip={[
+                    'Total Lifetime Value of Your Customer',
+                    'multiplied by (x)',
+                    'Cars Retained'
+                ]}
             />
             <Slider
                 color={color}
                 title={'Less Estimated Cost of Mailer'}
                 total={cost}
+                tip={[
+                    'This number represents an estimated cost of an oversized postcard 5.5x10.5 based on the quantity chosen.'
+                ]}
             />
             <Slider
                 color={color}
                 title={'Potential Net Revenue'}
                 total={(((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost}
+                tip={[
+                    'Less Estimated Cost of Mailer',
+                    'subtracted from (-)',
+                    'Long Term Revenue'
+                ]}
             />
             <Total
                 color={color}
                 equation={`$${(((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost} - $${cost} =`}
                 total={`${(((((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost) / cost).toFixed(2)}%`}
+                tip={[
+                    'Potential Net Revenue',
+                    'divided by (/)',
+                    'Less Estimated Cost of Mailer'
+                ]}
             />
         </Calculation>
         <Right

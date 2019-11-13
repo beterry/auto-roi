@@ -58,6 +58,9 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     total={quantity}
                     options={[1000, 5000, 10000, 15000, 20000]}
                     onChange={onChangeQuantity}
+                    tip={[
+                        'Choose the number of mailers you would like to send out.'
+                    ]}
                 />
                 <Slider
                     color={color}
@@ -65,36 +68,64 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     total={redemptionRate}
                     options={[0.005, 0.01, 0.02, 0.03, 0.05]}
                     onChange={onChangeRedemptionRate}
+                    tip={[
+                        'The percentage of how many offers are redeemed.'
+                    ]}
                 />
                 <Slider
                     color={color}
                     title={'Increased Car Count'}
                     total={quantity * redemptionRate}
+                    tip={[
+                        'Quantity Mailed',
+                        'multiplied by (x)',
+                        'Redemption Rate %'
+                    ]}
                 />
                 <Slider
                     color={'#69B8EB'}
                     title={'Average Repair Cost'}
                     total={aro}
+                    tip={[
+                        'Specified in Step 1'
+                    ]}
                 />
                 <Slider
                     color={color}
                     title={'Gross Revenue'}
                     total={aro * (quantity * redemptionRate)}
+                    tip={[
+                        'Increased Car Count',
+                        'multiplied by (x)',
+                        'Average Repair Order'
+                    ]}
                 />
                 <Slider
                     color={color}
                     title={'Less Estimated Cost of Mailer'}
                     total={cost}
+                    tip={[
+                        'This number represents an estimated cost of an oversized postcard 5.5x10.5 based on the quantity chosen.'
+                    ]}
                 />
                 <Slider
                     color={color}
                     title={'Net Revenue'}
                     total={(aro * quantity * redemptionRate) - cost}
+                    tip={[
+                        'Less Estimated Cost of Mailer',
+                        'subtracted from (-)'
+                    ]}
                 />
                 <Total
                     color={color}
                     equation={`$${(aro * quantity * redemptionRate) - cost} - $${cost} =`}
                     total={`${total.toFixed(2)}%`}
+                    tip={[
+                    'Net Revenue',
+                    'divided by (/)',
+                    'Less Estimated Cost of Mailer'
+                ]}
                 />
             </Calculation>
             <Right

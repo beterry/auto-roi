@@ -37,10 +37,14 @@
 .tip{
     background: #E9E9E9;
     border-radius: 3px;
-    padding: 20px;
     position: absolute;
     left: 120%;
     width: 300px;
+    padding: 10px 20px;
+}
+
+.tip p{
+    margin: 10px;
 }
 
 .triangle{

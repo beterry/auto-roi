@@ -46,6 +46,12 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     color={'#0067A4'}
                     title={'Potential Net Revenue'}
                     total={(((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost}
+                    tip={[
+                        'Calculated in Step 5',
+                        'Less Estimated Cost of Mailer',
+                        'subtracted from (-)',
+                        'Long Term Revenue'
+                    ]}
                 />
                 <Slider
                     color={color}
@@ -53,11 +59,19 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     total={profitMargin}
                     options={[0.3, 0.4, 0.5, 0.6, 0.7]}
                     onChange={onChangeProfitMargin}
+                    tip={[
+                        'The percentage of revenue left after all expenses have been deducted from sales.'
+                    ]}
                 />
                 <Total
                     color={color}
                     equation={`$${(((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost} x $${profitMargin} =`}
                     total={Math.round(total)}
+                    tip={[
+                        'Your Shops Net Profit Margin',
+                        'multiplied by (x)',
+                        'Potential Net Revenue'
+                    ]}
                 />
             </Calculation>
             <Right
