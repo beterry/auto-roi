@@ -49,6 +49,9 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                     total={aro}
                     options={[100, 300, 573, 750, 1000]}
                     onChange={onChangeAro}
+                    tip={[
+                        'How much does your average customer spend each time they visit your shop?'
+                    ]}
                 />
                 <Slider
                     color={color}
@@ -56,11 +59,19 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                     total={visits}
                     options={[1, 2, 3, 5, 10]}
                     onChange={onChangeVisits}
+                    tip={[
+                        'How many times does an average customer visit your shop per year?'
+                    ]}
                 />
                 <Slider
                     color={color}
                     title={'Yearly Value of Each Customer'}
                     total={aro * visits}
+                    tip={[
+                        'Average Repair Order (ARO)',
+                        'multiplied by (x)',
+                        'Number of Visits A Customer Makes Per Year'
+                    ]}
                 />
                 <Slider
                     color={color}
@@ -68,11 +79,19 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                     total={years}
                     options={[1, 3, 5, 10, 20]}
                     onChange={onChangeYears}
+                    tip={[
+                        'For how many years does a customer continue to use your shop?'
+                    ]}
                 />
                 <Total
                     color={color}
                     equation={`$${aro * visits} x ${years} =`}
                     total={total}
+                    tip={[
+                        'Yearly Value of Each Customer',
+                        'multiplied by (x)',
+                        'Average Number of Years You Keep a Customer'
+                    ]}
                 />
             </Calculation>
             <Right
