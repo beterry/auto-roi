@@ -84,6 +84,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     color={'#FF8C00'}
                     title={'Increased Car Count'}
                     total={numeral(increasedCarCount).format('0,0')}
+                    equation={numeral(quantity).format('0,0')+' x '+numeral(redemptionRate).format('0.0%')}
                     tip={[
                         'Calculated in Step 4',
                         'Quantity Mailed',
@@ -105,6 +106,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     color={color}
                     title={'Cars Retained'}
                     total={carsRetained}
+                    equation={numeral(increasedCarCount).format('0,0')+' x '+numeral(retention).format('0%')}
                     tip={[
                         'Increased Car Count',
                         'multiplied by (x)',
@@ -126,6 +128,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     color={color}
                     title={'Long Term Revenue'}
                     total={numeral(longTermRevenue).format('$0,0')}
+                    equation={numeral(lifetimeValue).format('$0,0')+' x '+carsRetained}
                     tip={[
                         'Total Lifetime Value of Your Customer',
                         'multiplied by (x)',
@@ -144,6 +147,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     color={color}
                     title={'Potential Net Revenue'}
                     total={numeral(potentialNetRevenue).format('$0,0')}
+                    equation={numeral(longTermRevenue).format('$0,0')+' - '+numeral(cost).format('$0,0')}
                     tip={[
                         'Less Estimated Cost of Mailer',
                         'subtracted from (-)',

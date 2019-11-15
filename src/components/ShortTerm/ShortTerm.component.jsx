@@ -92,6 +92,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     color={color}
                     title={'Increased Car Count'}
                     total={quantity * redemptionRate}
+                    equation={numeral(quantity).format(0,0)+' x '+numeral(redemptionRate).format('0.0%')}
                     tip={[
                         'Quantity Mailed',
                         'multiplied by (x)',
@@ -110,6 +111,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     color={color}
                     title={'Gross Revenue'}
                     total={numeral(aro * (quantity * redemptionRate)).format('$0,0')}
+                    equation={numeral(aro).format('$0,0')+' x '+(quantity * redemptionRate)}
                     tip={[
                         'Increased Car Count',
                         'multiplied by (x)',
@@ -128,6 +130,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     color={color}
                     title={'Net Revenue'}
                     total={numeral((aro * quantity * redemptionRate) - cost).format('$0,0')}
+                    equation={numeral(aro * (quantity * redemptionRate)).format('$0,0')+' + '+numeral(cost).format('$0,0')}
                     tip={[
                         'Less Estimated Cost of Mailer',
                         'subtracted from (-)'

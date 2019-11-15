@@ -21,10 +21,13 @@ import numeral from 'numeral'
 export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
     //determine what illustration to display
     let illustration
+    // eslint-disable-next-line
     if (referrals == 0){
         illustration = undefined
+        // eslint-disable-next-line
     } else if (referrals == 1){
         illustration = small
+        // eslint-disable-next-line
     } else if (referrals == 2){
         illustration = medium
     }else {

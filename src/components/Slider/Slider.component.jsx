@@ -6,7 +6,7 @@ import styles from './Slider.module.css'
 //import triangle
 import tipTriangle from '../../images/arrows/tip-triangle.svg'
 
-const Slider = ({color, title, total, options=[], onChange, tip}) => {
+const Slider = ({color, title, total, equation, options=[], onChange, tip}) => {
     const totalStyles = {
         color: color
     }
@@ -39,6 +39,10 @@ const Slider = ({color, title, total, options=[], onChange, tip}) => {
                 >
                     {total}
                 </h2>
+                {equation ?
+                    <p className={styles.equation}>{equation}</p>:
+                    undefined
+                }
                 {tip && showTip ? 
                     <img className={styles.triangle} src={tipTriangle} alt='' />:
                     undefined

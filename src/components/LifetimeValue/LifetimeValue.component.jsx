@@ -82,6 +82,7 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                     color={color}
                     title={'Yearly Value of Each Customer'}
                     total={numeral(aro * visits).format('$0,0')}
+                    equation={numeral(aro).format('$0,0')+' x '+visits}
                     tip={[
                         'Average Repair Order (ARO)',
                         'multiplied by (x)',
