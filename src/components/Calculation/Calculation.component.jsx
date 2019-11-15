@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 //import styles
 import styles from './Calculation.module.css'
@@ -11,10 +11,25 @@ export default ({color, title, children, tip}) => {
     const style={
         border: `solid 2px ${color}`
     }
+
     const [showTip, setShowTip] = useState(false)
-    const handleTipClick = () => {
+    const toggleTip = () => {
         setShowTip(!showTip)
     }
+
+    const closeTip = () => {
+        setShowTip(false)
+    }
+
+    useEffect(() => {
+        if (showTip){
+            document.addEventListener('click', closeTip)
+        }
+        return () => {
+            document.removeEventListener('click', closeTip)
+        }
+    }, [showTip])
+
     return (
         <div
             className={styles.calculation}
@@ -25,7 +40,7 @@ export default ({color, title, children, tip}) => {
                 <img
                     src={tooltip}
                     alt={'Click for more information'}
-                    onClick={handleTipClick}
+                    onClick={toggleTip}
                     className={styles.questionMark}
                 />
                 {tip && showTip ? 

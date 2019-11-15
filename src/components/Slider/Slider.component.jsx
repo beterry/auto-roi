@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 //import styles
 import styles from './Slider.module.css'
@@ -10,10 +10,24 @@ const Slider = ({color, title, total, options=[], onChange, tip}) => {
     const totalStyles = {
         color: color
     }
+    
     const [showTip, setShowTip] = useState(false)
-    const handleClickTotal = () => {
+    const toggleTip = () => {
         setShowTip(!showTip)
     }
+
+    const closeTip = () => {
+        setShowTip(false)
+    }
+
+    useEffect(() => {
+        if (showTip){
+            document.addEventListener('click', closeTip)
+        }
+        return () => {
+            document.removeEventListener('click', closeTip)
+        }
+    }, [showTip])
 
     return (
         <div className={styles.slider}>
@@ -21,7 +35,7 @@ const Slider = ({color, title, total, options=[], onChange, tip}) => {
                 <h3>{title}</h3>
                 <h2
                     style={totalStyles}
-                    onClick={handleClickTotal}
+                    onClick={toggleTip}
                 >
                     {total}
                 </h2>

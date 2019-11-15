@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 //import styles
 import styles from './Total.module.css'
@@ -11,15 +11,29 @@ export default ({color, equation, total, tip}) => {
         color
     }
     const [showTip, setShowTip] = useState(false)
-    const handleClickTotal = () => {
+    const toggleTip = () => {
         setShowTip(!showTip)
     }
+
+    const closeTip = () => {
+        setShowTip(false)
+    }
+
+    useEffect(() => {
+        if (showTip){
+            document.addEventListener('click', closeTip)
+        }
+        return () => {
+            document.removeEventListener('click', closeTip)
+        }
+    }, [showTip])
+
     return (
         <div className={styles.total}>
             <h3 style={propStyle}>{equation}</h3>
             <h2
                 style={propStyle}
-                onClick={handleClickTotal}
+                onClick={toggleTip}
             >
                 {total}
             </h2>
@@ -29,7 +43,7 @@ export default ({color, equation, total, tip}) => {
             }
             {tip && showTip ?
                 <div className={styles.tip}>
-                    {tip.map((line) => <p>{line}</p>)}
+                    {tip.map((line, index) => <p key={`${line} ${index}`}>{line}</p>)}
                 </div> :
                 undefined
             }
