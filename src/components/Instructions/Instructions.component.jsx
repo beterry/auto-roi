@@ -7,7 +7,7 @@ import styles from './Instructions.module.css'
 import blueCar from '../../images/illustrations/car-blue.svg'
 import redCar from '../../images/illustrations/car-red.svg'
 
-export default () => (
+export default ({activateCalc}) => (
     <div className={styles.instructions}>
         <h3>Instructions</h3>
         <p>Before we start, in order to better calculate your default values, please select which option best describes your shop:</p>
@@ -15,7 +15,7 @@ export default () => (
             <img src={redCar} alt={'Red car'} />
             <button
                 className={styles.chooseButton}
-                onClick={()=>console.log('General Shop')}
+                onClick={()=>activateCalc('general')}
             >GENERAL SHOP</button>
             <p>or</p>
             <button

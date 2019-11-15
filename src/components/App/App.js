@@ -31,6 +31,15 @@ function App() {
   const [retention, setRetention] = useState(0.8)
   const [profitMargin, setProfitMargin] = useState(0.5)
 
+  //variable for showing calculator after input
+  const [showCalc, setShowCalc] = useState(false)
+
+  const activateCalc = (shop) => {
+    if (shop === 'general'){
+      setShowCalc(true)
+    }
+  }
+
   //cost of mailer
   const cost = 3500
 
@@ -73,74 +82,79 @@ function App() {
       <Screen>
         <Header />
         <Intro />
-        <Instructions />
-        <Arrows />
+        <Instructions activateCalc={activateCalc}/>
+        {showCalc ? <Arrows /> : undefined}
       </Screen>
-      <LifetimeValue
-        color={'#69B8EB'}
-        aro={aro}
-        visits={visits}
-        years={years}
-        onChangeAro={changeAro}
-        onChangeVisits={changeVisits}  
-        onChangeYears={changeYears}
-      />
-      <Arrows />
-      <Referrals
-        color={'#00C25F'}
-        aro={aro}
-        visits={visits}
-        years={years}
-        referrals={referrals}
-        onChangeReferrals={changeReferrals}
-      />
-      <Arrows />
-      <TotalLifetime
-        color={'#9055A2'}
-        aro={aro}
-        visits={visits}
-        years={years}
-        referrals={referrals}
-      />
-      <Arrows />
-      <ShortTerm
-        color={'#FF8C00'}
-        aro={aro}
-        quantity={quantity}
-        redemptionRate={redemptionRate}
-        onChangeQuantity={changeQuantity}
-        onChangeRedemptionRate={changeRedemptionRate}
-        cost={cost}
-      />
-      <Arrows />
-      <LongTerm
-        color={'#0067A4'}
-        aro={aro}
-        visits={visits}
-        years={years}
-        referrals={referrals}
-        quantity={quantity}
-        redemptionRate={redemptionRate}
-        cost={cost}
-        retention={retention}
-        onChangeRetention={changeRetention}
-      />
-      <Arrows />
-      <MoneyBank
-        color={'#F26536'}
-        aro={aro}
-        visits={visits}
-        years={years}
-        referrals={referrals}
-        quantity={quantity}
-        redemptionRate={redemptionRate}
-        cost={cost}
-        retention={retention}
-        profitMargin={profitMargin}
-        onChangeProfitMargin={changeProfitMargin}
-      />
-      <Footer/>
-    </Layout>
+      {showCalc ?
+        <>
+          <LifetimeValue
+            color={'#69B8EB'}
+            aro={aro}
+            visits={visits}
+            years={years}
+            onChangeAro={changeAro}
+            onChangeVisits={changeVisits}  
+            onChangeYears={changeYears}
+          />
+          <Arrows />
+          <Referrals
+            color={'#00C25F'}
+            aro={aro}
+            visits={visits}
+            years={years}
+            referrals={referrals}
+            onChangeReferrals={changeReferrals}
+          />
+          <Arrows />
+          <TotalLifetime
+            color={'#9055A2'}
+            aro={aro}
+            visits={visits}
+            years={years}
+            referrals={referrals}
+          />
+          <Arrows />
+          <ShortTerm
+            color={'#FF8C00'}
+            aro={aro}
+            quantity={quantity}
+            redemptionRate={redemptionRate}
+            onChangeQuantity={changeQuantity}
+            onChangeRedemptionRate={changeRedemptionRate}
+            cost={cost}
+          />
+          <Arrows />
+          <LongTerm
+            color={'#0067A4'}
+            aro={aro}
+            visits={visits}
+            years={years}
+            referrals={referrals}
+            quantity={quantity}
+            redemptionRate={redemptionRate}
+            cost={cost}
+            retention={retention}
+            onChangeRetention={changeRetention}
+          />
+          <Arrows />
+          <MoneyBank
+            color={'#F26536'}
+            aro={aro}
+            visits={visits}
+            years={years}
+            referrals={referrals}
+            quantity={quantity}
+            redemptionRate={redemptionRate}
+            cost={cost}
+            retention={retention}
+            profitMargin={profitMargin}
+            onChangeProfitMargin={changeProfitMargin}
+          />
+          <Footer/>
+        </>:
+      undefined
+      }
+      </Layout>
   )
 }
 
