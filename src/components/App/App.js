@@ -89,8 +89,11 @@ function App() {
     <Layout theme={theme}>
       <Screen>
         <Header changeTheme={changeTheme} />
-        <Intro />
-        <Instructions activateCalc={activateCalc}/>
+        <Intro theme={theme}/>
+        <Instructions
+          activateCalc={activateCalc}
+          theme={theme}
+        />
         {showCalc ? <Arrows /> : undefined}
       </Screen>
       {showCalc ?

@@ -6,6 +6,10 @@ h1{
   color: #002A42;
 }
 
+h1.dark{
+  color: white;
+}
+
 h2{
   font-family: 'Lato', sans-serif;
   font-size: 22px;
@@ -37,6 +41,10 @@ p {
   letter-spacing: 0;
   margin: 0;
   line-height: 22px;
+}
+
+p.dark {
+  color: white;
 }
 
 body {
