@@ -4,12 +4,29 @@ import React, {useState, useEffect} from 'react'
 import styles from './Calculation.module.css'
 
 //import images
-import tooltip from '../../images/tooltips/tooltip.svg'
+import lightTooltip from '../../images/tooltips/tooltip.svg'
+import darkTooltip from '../../images/tooltips/tooltip-white.svg'
 import tipTriangle from '../../images/arrows/tip-triangle.svg'
 
-export default ({color, title, children, tip}) => {
-    const style={
-        border: `solid 2px ${color}`
+export default ({color, title, children, tip, theme}) => {
+    const themeStyle= {
+        light: {
+            border: `solid 2px ${color}`,
+            background: 'white'
+        },
+        dark: {
+            background: '#002A42'
+        }
+        
+    }
+    const themeFont= {
+        light: {
+            color: '#002A42'
+        },
+        dark: {
+            color: 'white'
+        }
+        
     }
 
     const [showTip, setShowTip] = useState(false)
@@ -33,12 +50,12 @@ export default ({color, title, children, tip}) => {
     return (
         <div
             className={styles.calculation}
-            style={style}
+            style={theme ? themeStyle.light : themeStyle.dark}
         >
             <div className={styles.title}>
-                <h2>{title}</h2>
+                <h2 style={theme ? themeFont.light : themeFont.dark}>{title}</h2>
                 <img
-                    src={tooltip}
+                    src={theme ? lightTooltip : darkTooltip}
                     alt={'Click for more information'}
                     onClick={toggleTip}
                     className={styles.questionMark}

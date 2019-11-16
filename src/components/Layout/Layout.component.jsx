@@ -7,7 +7,7 @@ export default ({children, theme}) => {
 
     const themeStyle = {
         light: {
-            background:'lightblue'
+            background:'white'
         },
         dark: {
             background:'#001E2F'

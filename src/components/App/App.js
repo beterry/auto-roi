@@ -106,6 +106,7 @@ function App() {
             onChangeAro={changeAro}
             onChangeVisits={changeVisits}  
             onChangeYears={changeYears}
+            theme={theme}
           />
           <Arrows />
           <Referrals

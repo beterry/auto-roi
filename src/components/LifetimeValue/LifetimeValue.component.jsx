@@ -19,7 +19,18 @@ import large from '../../images/illustrations/money-large-whole.svg'
 //import numeral
 import numeral from 'numeral'
 
-export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChangeYears}) => {
+export default (
+    {
+        color,
+        aro,
+        visits,
+        years,
+        onChangeAro,
+        onChangeVisits,
+        onChangeYears,
+        theme
+    }
+) => {
     // determine what illustration should be displayed
     let total = aro * visits * years
     let illustration
@@ -57,6 +68,7 @@ export default ({color, aro, visits, years, onChangeAro, onChangeVisits, onChang
                     'equals (=)',
                     'Value of One Customer'
                 ]}
+                theme={theme}
             >
                 <Slider
                     color={color}
