@@ -80,7 +80,7 @@ function App() {
   //theme state
   //true = light
   //false = dark
-  const [theme, setTheme] = useState(true)
+  const [theme, setTheme] = useState(false)
   const changeTheme = () => {
     setTheme(!theme)
   }

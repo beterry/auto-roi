@@ -6,9 +6,29 @@ import styles from './Slider.module.css'
 //import triangle
 import tipTriangle from '../../images/arrows/tip-triangle.svg'
 
-const Slider = ({color, title, total, equation, options=[], onChange, tip}) => {
+const Slider = (
+    {
+        color,
+        title,
+        total,
+        equation,
+        options=[],
+        onChange,
+        tip,
+        theme
+    }
+) => {
     const totalStyles = {
         color: color
+    }
+
+    const themeFont = {
+        light: {
+            color: '#002A42'
+        },
+        dark: {
+            color: 'white'
+        }
     }
     
     const [showTip, setShowTip] = useState(false)
@@ -32,7 +52,7 @@ const Slider = ({color, title, total, equation, options=[], onChange, tip}) => {
     return (
         <div className={styles.slider}>
             <div className={styles.total}>
-                <h3>{title}</h3>
+                <h3 style={theme ? themeFont.light : themeFont.dark}>{title}</h3>
                 <h2
                     style={totalStyles}
                     onClick={toggleTip}
@@ -40,7 +60,7 @@ const Slider = ({color, title, total, equation, options=[], onChange, tip}) => {
                     {total}
                 </h2>
                 {equation ?
-                    <p className={styles.equation}>{equation}</p>:
+                    <p className={styles.equation} style={theme ? null : themeFont.dark}>{equation}</p>:
                     undefined
                 }
                 {tip && showTip ? 

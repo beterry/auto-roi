@@ -55,6 +55,7 @@ export default (
                     'It’s important you do not value your new customers solely on the amount spent on their first repair order or you will be overlooking the important, ongoing revenue from future repair orders that can only come over time.',
                     'Therefore, it’s critical we identify and assign the real value and revenue that each customer spends over the time they remain a customer at your shop AKA Lifetime Value of a Customer.'
                     ]}
+                    theme={theme}
             />
             <Calculation
                 color={color}
@@ -79,6 +80,7 @@ export default (
                     tip={[
                         'How much does your average customer spend each time they visit your shop?'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -89,6 +91,7 @@ export default (
                     tip={[
                         'How many times does an average customer visit your shop per year?'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -100,6 +103,7 @@ export default (
                         'multiplied by (x)',
                         'Number of Visits A Customer Makes Per Year'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -110,6 +114,7 @@ export default (
                     tip={[
                         'For how many years does a customer continue to use your shop?'
                     ]}
+                    theme={theme}
                 />
                 <Total
                     color={color}
@@ -120,6 +125,7 @@ export default (
                         'multiplied by (x)',
                         'Average Number of Years You Keep a Customer'
                     ]}
+                    theme={theme}
                 />
             </Calculation>
             <Right
@@ -129,8 +135,11 @@ export default (
                 <Tip
                         color={color}
                         title={`Here's a Tip!`}
+                        theme={theme}
                     >
-                        <p>Tap on any number to get an in-depth description or simply select the “?” icon.</p>
+                        <p className={theme ? 'light' : 'dark'}>
+                            Tap on any number to get an in-depth description or simply select the “?” icon.
+                        </p>
                 </Tip>
             </Right>
         </Step>
