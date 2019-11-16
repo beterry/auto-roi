@@ -88,7 +88,7 @@ function App() {
   return (
     <Layout theme={theme}>
       <Screen>
-        <Header changeTheme={changeTheme} />
+        <Header changeTheme={changeTheme} theme={theme}/>
         <Intro theme={theme}/>
         <Instructions
           activateCalc={activateCalc}

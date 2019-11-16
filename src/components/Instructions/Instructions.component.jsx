@@ -23,7 +23,7 @@ export default ({activateCalc, theme}) => (
             >
                 GENERAL SHOP
             </button>
-            <p>or</p>
+            <p className={theme ? 'light' : 'dark'}>or</p>
             <button
                 className={theme ? styles.lightButton : styles.darkButton}
                 onClick={()=>console.log('Specialty Shop')}
