@@ -18,7 +18,7 @@ import large from '../../images/illustrations/pig-large.svg'
 //import libraries
 import numeral from 'numeral'
 
-export default ({color, aro, visits, years, referrals, quantity, redemptionRate, cost, retention, profitMargin, onChangeProfitMargin}) => {
+export default ({color, aro, visits, years, referrals, quantity, redemptionRate, cost, retention, profitMargin, onChangeProfitMargin, theme}) => {
     //determine what illustration to display
     let illustration
     if (profitMargin < 0.4){
@@ -42,6 +42,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     'Revenue & Percentages are great, however, all that matters at the end of the day is how much you take to the bank in the form of NET PROFITS.',
                     'In order to calculate the Net Profits generated, simply select your shops net profit margins from your latest P&L statement.'
                 ]}
+                theme={theme}
             />
             <Calculation
                 color={color}
@@ -53,6 +54,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     'equals (=)',
                     'How much money you take to the bank'
                 ]}
+                theme={theme}
             >
                 <Slider
                     color={'#0067A4'}
@@ -64,6 +66,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                         'subtracted from (-)',
                         'Long Term Revenue'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -74,6 +77,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     tip={[
                         'The percentage of revenue left after all expenses have been deducted from sales.'
                     ]}
+                    theme={theme}
                 />
                 <Total
                     color={color}

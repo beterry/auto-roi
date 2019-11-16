@@ -17,7 +17,7 @@ import illustration from '../../images/illustrations/money-pile.svg'
 //import libraries
 import numeral from 'numeral'
 
-export default ({color, aro, visits, years, referrals, quantity, redemptionRate, cost, retention, onChangeRetention}) => {
+export default ({color, aro, visits, years, referrals, quantity, redemptionRate, cost, retention, onChangeRetention, theme}) => {
     let increasedCarCount = quantity * redemptionRate
     let carsRetained = increasedCarCount * retention
     let lifetimeValue = aro * visits * years
@@ -35,12 +35,17 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     'It is quite possible to get a lower redemption rate but have a higher ROI due to higher dollar repair orders. Remember, you don’t take Percentages to the bank you take dollars to the bank.',
                     'In order to calculate your potential net profits generated from your direct mail campaigns, simply select our shops net profit margin based on your latest P&L.'
                 ]}
+                theme={theme}
             >
                 <Tip
                     color={color}
                     title={'Cost of Mailer'}
                 >
-                    <p>This is based on Mail Sharks all-inclusive price for a 5.5x10.5 postcard and quantity you have selected to mail.</p>
+                    <p
+                        className={theme ? 'light' : 'dark'}
+                    >
+                        This is based on Mail Sharks all-inclusive price for a 5.5x10.5 postcard and quantity you have selected to mail.
+                    </p>
                 </Tip>
             </Left>
             <Calculation
@@ -61,6 +66,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     'equals (=)',
                     'Long Term Direct Mail ROI'
                 ]}
+                theme={theme}
             >
                 <Slider
                     color={'#FF8C00'}
@@ -70,6 +76,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                         'Specified in Step 4',
                         'This was the number of mailers chosen in step 4.'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={'#FF8C00'}
@@ -79,6 +86,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                         'Specified in Step 4',
                         'The percentage of how many offers are redeemed.'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={'#FF8C00'}
@@ -91,6 +99,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                         'multiplied by (x)',
                         'Redemption Rate %'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -101,6 +110,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     tip={[
                         'What % of your customers remain customers after their first visit?'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -112,6 +122,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                         'multiplied by (x)',
                         'Customer Retention Rate'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={'#9055A2'}
@@ -123,6 +134,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                         'plus (+)',
                         'Revenue From Referrals'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -134,6 +146,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                         'multiplied by (x)',
                         'Cars Retained'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -142,6 +155,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                     tip={[
                         'This number represents an estimated cost of an oversized postcard 5.5x10.5 based on the quantity chosen.'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -153,6 +167,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                         'subtracted from (-)',
                         'Long Term Revenue'
                     ]}
+                    theme={theme}
                 />
                 <Total
                     color={color}

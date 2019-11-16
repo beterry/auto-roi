@@ -16,7 +16,7 @@ import illustration from '../../images/illustrations/total-lifetime.svg'
 //import numeral
 import numeral from 'numeral'
 
-export default ({color, aro, visits, years, referrals}) => {
+export default ({color, aro, visits, years, referrals, theme}) => {
     let total = (aro * visits * years * referrals) + (aro * visits * years)
     let formatTotal = numeral(total).format('$0,0')
     return(
@@ -28,6 +28,7 @@ export default ({color, aro, visits, years, referrals}) => {
                 hidden={[
                     'In other words the total amount of potential revenue generated from each new customer over the timespan they remain a customer plus the addition of the important revenue generated from these customer referrals.'
                 ]}
+                theme={theme}
             />
             <Calculation
                 color={color}
@@ -39,6 +40,7 @@ export default ({color, aro, visits, years, referrals}) => {
                     'equals (=)',
                     'Total Lifetime Value'
                 ]}
+                theme={theme}
             >
                 <Slider
                     color={'#69B8EB'}
@@ -50,6 +52,7 @@ export default ({color, aro, visits, years, referrals}) => {
                         'multiplied by (x)',
                         'Average Number of Years You Keep a Customer'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={'#00C25F'}
@@ -61,6 +64,7 @@ export default ({color, aro, visits, years, referrals}) => {
                         'multiplied by (x)',
                         'Average Number of Referrals Made by One Customer'
                     ]}
+                    theme={theme}
                 />
                 <Total
                     color={color}
@@ -71,6 +75,7 @@ export default ({color, aro, visits, years, referrals}) => {
                         'plus (+)',
                         'Revenue From Referrals'
                     ]}
+                    theme={theme}
                 />
             </Calculation>
             <Right

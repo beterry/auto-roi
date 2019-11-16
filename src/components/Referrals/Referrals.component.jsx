@@ -18,7 +18,7 @@ import large from '../../images/illustrations/testimonials-large-whole.svg'
 //improt numeral
 import numeral from 'numeral'
 
-export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
+export default ({color, aro, visits, years, referrals, onChangeReferrals, theme}) => {
     //determine what illustration to display
     let illustration
     // eslint-disable-next-line
@@ -47,6 +47,7 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
                     'Therefore, we must determine the average number of referrals you receive from each of your new customers. These referrals can be other family members, friends, neighbors or colleagues’ vehicles.',
                     'Fill in whatever number of referrals is true to your shop. But don’t skip this step! Revenue generated from referrals must be part of the value of that new customer. The fact is, you would have never received that referral without the initial direct mail that attracted that new customer who referred them to your shop.'
                 ]}
+                theme={theme}
             >
             </Left>
             <Calculation
@@ -59,6 +60,7 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
                     'equals (=)',
                     'Revenue from Referrals'
                 ]}
+                theme={theme}
             >
                 <Slider
                     color={'#69B8EB'}
@@ -70,6 +72,7 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
                         'multiplied by (x)',
                         'Average Number of Years You Keep a Customer'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -80,6 +83,7 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
                     tip={[
                         'On average, how many customers do you obtain from a happy customer’s recommendation?'
                     ]}
+                    theme={theme}
                 />
                 <Total
                     color={color}
@@ -90,6 +94,7 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals}) => {
                         'multiplied by (x)',
                         'Average Number of Referrals Received by One Customer'
                     ]}
+                    theme={theme}
                 />
             </Calculation>
             <Right

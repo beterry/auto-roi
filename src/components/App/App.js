@@ -116,6 +116,7 @@ function App() {
             years={years}
             referrals={referrals}
             onChangeReferrals={changeReferrals}
+            theme={theme}
           />
           <Arrows />
           <TotalLifetime
@@ -124,6 +125,7 @@ function App() {
             visits={visits}
             years={years}
             referrals={referrals}
+            theme={theme}
           />
           <Arrows />
           <ShortTerm
@@ -134,6 +136,7 @@ function App() {
             onChangeQuantity={changeQuantity}
             onChangeRedemptionRate={changeRedemptionRate}
             cost={cost}
+            theme={theme}
           />
           <Arrows />
           <LongTerm
@@ -147,6 +150,7 @@ function App() {
             cost={cost}
             retention={retention}
             onChangeRetention={changeRetention}
+            theme={theme}
           />
           <Arrows />
           <MoneyBank
@@ -161,10 +165,11 @@ function App() {
             retention={retention}
             profitMargin={profitMargin}
             onChangeProfitMargin={changeProfitMargin}
+            theme={theme}
           />
-          <Footer/>
+          <Footer theme={theme}/>
         </>:
-      undefined
+      null
       }
       </Layout>
   )

@@ -19,7 +19,7 @@ import large from '../../images/illustrations/phones-large-whole.svg'
 //import libraries
 import numeral from 'numeral'
 
-export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionRate, onChangeQuantity}) => {
+export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionRate, onChangeQuantity, theme}) => {
     let total = ((aro * quantity * redemptionRate) - cost) / cost
     let illustration
     if (total <= 7) {
@@ -37,18 +37,27 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 color={color}
                 show={['Now that you have you have entered your ARO Average Repair Order in step 1 we can begin to calculate your short-term ROI on your direct mail campaign.']}
                 hidden={['We define Short term ROI as revenue that comes in within the first 3-6 months of your last mailer being sent out. It’s important you remain patient and give your direct mail marketing time to work. Remember someone that receives your direct mail today, might not have a broken car until months down the line. This is proven out time and time again with call tracking.']}
+                theme={theme}
             >
                 <Tip
                     color={color}
                     title={'Redemption Rate %'}
                 >
-                    <p>1/2% Is the minimum targeted benchmark redemption rate. That said, with the right creative, mailing list, CTA and strategy, this number can easily be exceeded.</p>
+                    <p 
+                        className={theme ? 'light' : 'dark'}
+                    >
+                        1/2% Is the minimum targeted benchmark redemption rate. That said, with the right creative, mailing list, CTA and strategy, this number can easily be exceeded.
+                    </p>
                 </Tip>
                 <Tip
                     color={color}
                     title={'Cost of Mailer'}
                 >
-                    <p>This is based on Mail Sharks all-inclusive price for a 5.5x10.5 postcard and quantity you have selected to mail.</p>
+                    <p
+                        className={theme ? 'light' : 'dark'}
+                    >
+                        This is based on Mail Sharks all-inclusive price for a 5.5x10.5 postcard and quantity you have selected to mail.
+                    </p>
                 </Tip>
             </Left>
             <Calculation
@@ -67,6 +76,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     'equals (=)',
                     'Short Term Direct Mail ROI'
                 ]}
+                theme={theme}
             >
                 <Slider
                     color={color}
@@ -77,6 +87,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     tip={[
                         'Choose the number of mailers you would like to send out.'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -87,6 +98,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     tip={[
                         'The percentage of how many offers are redeemed.'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -98,6 +110,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                         'multiplied by (x)',
                         'Redemption Rate %'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={'#69B8EB'}
@@ -106,6 +119,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     tip={[
                         'Specified in Step 1'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -117,6 +131,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                         'multiplied by (x)',
                         'Average Repair Order'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -125,6 +140,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     tip={[
                         'This number represents an estimated cost of an oversized postcard 5.5x10.5 based on the quantity chosen.'
                     ]}
+                    theme={theme}
                 />
                 <Slider
                     color={color}
@@ -135,6 +151,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                         'Less Estimated Cost of Mailer',
                         'subtracted from (-)'
                     ]}
+                    theme={theme}
                 />
                 <Total
                     color={color}
