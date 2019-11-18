@@ -12,7 +12,7 @@ const Slider = (
         title,
         total,
         equation,
-        options=[],
+        options,
         onChange,
         tip,
         theme
@@ -20,6 +20,16 @@ const Slider = (
 ) => {
     const totalStyles = {
         color: color
+    }
+
+    const lineStyles = {
+        background: color
+    }
+
+    const trackerStyles = {
+        left: '50%',
+        marginLeft: '-15px',
+        background: color
     }
 
     const themeFont = {
@@ -74,16 +84,26 @@ const Slider = (
                     undefined
                 }
             </div>
-            <div className={styles.options}>
-                {options.map((option, index) => 
-                    <button
-                        key={option}
-                        onClick={(e) => onChange(e.target.innerHTML)}
-                    >
-                        {option}
-                    </button>
-                )}
-            </div>
+            {options ? 
+                <div className={styles.options}>
+                    <div className={styles.line} style={lineStyles}/>
+                    <div className={styles.touches}>
+                        {options.map((option, index) => 
+                            <div 
+                                className={styles.touch}
+                                key={option}
+                                value={option}
+                                onClick={(e) => onChange(e.target.getAttribute('value'))}
+                            >
+                                <div className={styles.dot} />
+                            </div>
+                        )}
+                    </div>
+                    <div className={styles.tracker} style={trackerStyles}/>
+                </div>:
+                null
+            }
+            
         </div>
     )
 }

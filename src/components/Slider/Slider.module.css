@@ -11,9 +11,52 @@
 }
 
 .options{
+    height: 30px;
+    background: gray;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.line{
+    height: 5px;
+    width: 100%;
+    border-radius: 2.5px;
+}
+
+.touches{
+    position: absolute;
+    height: 30px;
+    right: -15px;
+    left: -15px;
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
+}
+
+.touch{
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    background: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot{
+    height: 5px;
+    width: 5px;
+    border-radius: 2.5px;
+    background: white;
+    opacity: .5;
+}
+
+.tracker{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
 }
 
 .slider h2{
