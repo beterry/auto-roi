@@ -67,7 +67,7 @@ const Slider = (
             background: color
         },
         {
-            right: '-15px',
+            left: 'calc(100% - 15px)',
             marginLeft: '0px',
             background: color
         }

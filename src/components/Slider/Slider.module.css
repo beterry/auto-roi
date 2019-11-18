@@ -31,6 +31,9 @@
     position: absolute;
     top: 50%;
     margin-top: -2.5px;
+    align-items: center;
+    transition-property: width;
+    transition-duration: 0.3s;
 }
 
 .touches{
@@ -68,6 +71,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition-property: left;
+    transition-duration: 0.3s;
 }
 
 .tracker img{
