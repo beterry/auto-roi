@@ -13,19 +13,9 @@
 }
 
 .copy h1{
-    margin: 0;
+    margin: 0 0 25px 0;
 }
 
 .copy h2{
     margin: 0;
-}
-
-.sliderImage{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.sliderImage{
-    width: 80%;
 }
