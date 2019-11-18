@@ -12,7 +12,6 @@
 
 .options{
     height: 30px;
-    background: gray;
     position: relative;
     display: flex;
     align-items: center;
@@ -23,13 +22,22 @@
     height: 5px;
     width: 100%;
     border-radius: 2.5px;
+    opacity: .5;
+}
+
+.overlayLine{
+    height: 5px;
+    border-radius: 2.5px;
+    position: absolute;
+    top: 50%;
+    margin-top: -2.5px;
 }
 
 .touches{
     position: absolute;
     height: 30px;
-    right: -15px;
-    left: -15px;
+    right: -12.5px;
+    left: -12.5px;
     display: flex;
     justify-content: space-between;
 }
@@ -37,11 +45,11 @@
 .touch{
     height: 30px;
     width: 30px;
-    border-radius: 15px;
-    background: coral;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .dot{
@@ -56,7 +64,14 @@
     position: absolute;
     height: 30px;
     width: 30px;
-    border-radius: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tracker img{
+    width: 13px;
 }
 
 .slider h2{

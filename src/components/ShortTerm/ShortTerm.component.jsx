@@ -88,6 +88,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                         'Choose the number of mailers you would like to send out.'
                     ]}
                     theme={theme}
+                    initPosition={1}
                 />
                 <Slider
                     color={color}
@@ -99,6 +100,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                         'The percentage of how many offers are redeemed.'
                     ]}
                     theme={theme}
+                    initPosition={0}
                 />
                 <Slider
                     color={color}
