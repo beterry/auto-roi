@@ -6,10 +6,6 @@
     margin-top: 20px;
 }
 
-.header img{
-    width: 150px;
-}
-
 .toggleTheme img{
     width: 20px;
 }
@@ -32,6 +28,15 @@ button.toggleTheme{
 
 @media screen and (max-width: 525px){
     .header{
-        margin-bottom: 50px;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: auto;
+        width: 100%;
+    }
+
+    .matter{
+        width: 100%;
+        margin-bottom: 30px;
     }
 }

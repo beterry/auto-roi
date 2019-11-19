@@ -20,7 +20,7 @@ export default ({changeTheme, theme}) => {
     }
     return(
         <div className={styles.header}>
-            <img src={theme ? lightLogo : darkLogo} alt={'Mail Shark logo'}/>
+            <img style={{width: '150px'}} src={theme ? lightLogo : darkLogo} alt={'Mail Shark logo'}/>
             <div className={styles.matter}>
                 <button
                     className={styles.toggleTheme}
