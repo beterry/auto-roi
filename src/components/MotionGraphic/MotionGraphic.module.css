@@ -7,6 +7,12 @@
     margin: 10px auto;
 }
 
+@media screen and (max-width: 850px){
+    .options{
+        display: none;
+    }
+}
+
 .line{
     height: 5px;
     width: 100%;

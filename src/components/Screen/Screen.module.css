@@ -1,6 +1,12 @@
 .screen{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 525px){
+    .screen{
+        display: block;
+    }
 }

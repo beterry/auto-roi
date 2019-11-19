@@ -28,7 +28,7 @@ export default ({theme}) => {
                     If your haven't already done so, please read our <a href={'www.themailshark.com'}>ROI article</a>. This will give you the best understanding as to the methodology used as well as a full explanation of what these number mean and why they are used.
                 </p>
             </div>
-            <div>
+            <div className={styles.graphic}>
                 <MotionGraphic
                     color={'#69B8EB'}
                     firstPosition={1}

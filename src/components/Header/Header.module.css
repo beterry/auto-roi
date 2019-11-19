@@ -27,3 +27,9 @@ button.toggleTheme{
     border: none;
     border-radius: 3px;
 }
+
+@media screen and (max-width: 525px){
+    .header{
+        margin-bottom: 50px;
+    }
+}

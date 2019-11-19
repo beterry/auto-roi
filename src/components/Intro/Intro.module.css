@@ -15,10 +15,32 @@
     justify-content: center;
 }
 
+.copy p{
+    margin-bottom: 15px;
+}
+
 .copy h1{
     margin: 0 0 25px 0;
 }
 
 .copy h2{
     margin: 0;
+}
+
+@media screen and (max-width: 850px){
+    .intro{
+        display: block;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .intro > div{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 525px){
+    .intro{
+        margin-bottom: 50px;
+        
+    }
 }
