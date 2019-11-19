@@ -2,3 +2,10 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 875px){
+    .step{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}

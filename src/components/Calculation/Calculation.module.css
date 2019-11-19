@@ -7,6 +7,14 @@
     justify-content: space-between;
 }
 
+@media screen and (max-width: 875px){
+    .calculation{
+        margin: 0 auto;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
 .title{
     width: 80%;
     margin: 0 auto 20px auto;
