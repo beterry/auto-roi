@@ -7,10 +7,12 @@ export default ({children, theme}) => {
 
     const themeStyle = {
         light: {
-            background:'white'
+            background:'white',
+            overflow: 'hidden'
         },
         dark: {
-            background:'#001E2F'
+            background:'#001E2F',
+            overflow: 'hidden'
         }
     }
 

@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     height: 10vh;
+    margin-top: 20px;
 }
 
 .header img{
@@ -11,13 +12,16 @@
 
 .matter{
     display: flex;
-    width: 30%;
     justify-content: space-between;
     align-items: center;
 }
 
+.matter p{
+    margin-left: 30px;
+}
+
 button.toggleTheme{
-    padding: 15px 30px;
+    padding: 10px 30px;
     background: orange;
     color: white;
     border: none;

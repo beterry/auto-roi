@@ -84,14 +84,17 @@ export default ({color, theme, firstPosition, secondPosition, thirdPosition}) =>
 
     const moveTracker = () => {
         setTimeout(() => {
+            // eslint-disable-next-line
             if (position == firstPosition){
                 setPosition(secondPosition)
                 return
             }
+            // eslint-disable-next-line
             if (position == secondPosition){
                 setPosition(thirdPosition)
                 return
             }
+            // eslint-disable-next-line
             if (position == thirdPosition){
                 setPosition(firstPosition)
                 return
