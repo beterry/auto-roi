@@ -1,7 +1,9 @@
 .arrows{
     display: flex;
     justify-content: center;
-    margin: 40px 0 40px 0;
+    align-items: center;
+    height: 40px;
+    margin: 0;
 }
 
 .arrows img{

@@ -1,0 +1,9 @@
+.part{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.part h2{
+    margin: 0;
+    font-size: 32px;
+}

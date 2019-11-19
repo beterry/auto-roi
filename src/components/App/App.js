@@ -14,6 +14,8 @@ import ShortTerm from '../ShortTerm/ShortTerm.component'
 import LongTerm from '../LongTerm/LongTerm.component'
 import MoneyBank from '../MoneyBank/MoneyBank.component'
 import Footer from '../Footer/Footer.component'
+import Part from '../Part/Part.component'
+import Padding from '../Padding/Padding.component'
 
 // import styles
 // import styles from './App.module.css'
@@ -32,7 +34,7 @@ function App() {
   const [profitMargin, setProfitMargin] = useState(0.5)
 
   //variable for showing calculator after input
-  const [showCalc, setShowCalc] = useState(true)
+  const [showCalc, setShowCalc] = useState(false)
 
   const activateCalc = (shop) => {
     if (shop === 'general'){
@@ -94,10 +96,19 @@ function App() {
           activateCalc={activateCalc}
           theme={theme}
         />
-        {showCalc ? <Arrows /> : undefined}
+        {showCalc ? <Arrows /> : <Padding />}
       </Screen>
       {showCalc ?
         <>
+        <Padding />
+          <Part 
+            partNumber={1}
+            title={'Determine Value Of Your Customers'}
+            theme={theme}
+          />
+          <Padding />
+          <Arrows />
+          <Padding />
           <LifetimeValue
             color={'#69B8EB'}
             aro={aro}
@@ -108,7 +119,9 @@ function App() {
             onChangeYears={changeYears}
             theme={theme}
           />
+          <Padding />
           <Arrows />
+          <Padding />
           <Referrals
             color={'#00C25F'}
             aro={aro}
@@ -118,7 +131,9 @@ function App() {
             onChangeReferrals={changeReferrals}
             theme={theme}
           />
+          <Padding />
           <Arrows />
+          <Padding />
           <TotalLifetime
             color={'#9055A2'}
             aro={aro}
@@ -127,7 +142,17 @@ function App() {
             referrals={referrals}
             theme={theme}
           />
+          <Padding />
           <Arrows />
+          <Padding />
+          <Part 
+            partNumber={2}
+            title={'Short-Term & Long-Term Return On Investment'}
+            theme={theme}
+          />
+          <Padding />
+          <Arrows />
+          <Padding />
           <ShortTerm
             color={'#FF8C00'}
             aro={aro}
@@ -138,7 +163,9 @@ function App() {
             cost={cost}
             theme={theme}
           />
+          <Padding />
           <Arrows />
+          <Padding />
           <LongTerm
             color={'#0067A4'}
             aro={aro}
@@ -152,7 +179,9 @@ function App() {
             onChangeRetention={changeRetention}
             theme={theme}
           />
+          <Padding />
           <Arrows />
+          <Padding />
           <MoneyBank
             color={'#F26536'}
             aro={aro}
@@ -167,7 +196,9 @@ function App() {
             onChangeProfitMargin={changeProfitMargin}
             theme={theme}
           />
+          <Padding />
           <Footer theme={theme}/>
+          <Padding />
         </>:
       null
       }
