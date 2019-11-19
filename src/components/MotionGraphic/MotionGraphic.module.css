@@ -1,11 +1,10 @@
 .options{
     height: 30px;
-    width: 100%;
+    width: 70%;
     position: relative;
     display: flex;
     align-items: center;
-    margin: 10px 0;
-    background: gray;
+    margin: 10px auto;
 }
 
 .line{

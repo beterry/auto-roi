@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 //import styles
 import styles from './MotionGraphic.module.css'
@@ -23,7 +23,7 @@ export default ({color, theme, firstPosition, secondPosition, thirdPosition}) =>
         borderStyle = {
             borderWidth:'2px',
             borderStyle: 'solid',
-            borderColor: '#002A42'
+            borderColor: '#001E2F'
         }
     }
 
@@ -82,10 +82,32 @@ export default ({color, theme, firstPosition, secondPosition, thirdPosition}) =>
     const [position, setPosition] = useState(firstPosition)
     const options = [0,1,2,3,4]
 
+    const moveTracker = () => {
+        setTimeout(() => {
+            if (position == firstPosition){
+                setPosition(secondPosition)
+                return
+            }
+            if (position == secondPosition){
+                setPosition(thirdPosition)
+                return
+            }
+            if (position == thirdPosition){
+                setPosition(firstPosition)
+                return
+            }
+            moveTracker()
+        }, 2000)
+    }
+
+    useEffect(() => {
+        moveTracker()
+    })
+
     return(
         <div className={styles.options}>
             <div className={styles.line} style={lineStyles}/>
-            {/* <div className={styles.overlayLine} style={overlayStyle[position]}/>
+            <div className={styles.overlayLine} style={overlayStyle[position]}/>
             <div className={styles.touches}>
                 {options.map((option, index) => 
                     <div 
@@ -101,7 +123,7 @@ export default ({color, theme, firstPosition, secondPosition, thirdPosition}) =>
                 style={{...positionStyle[position], ...borderStyle}}
             >
                     <img src={favicon} alt={'adjust slider'}/>
-            </div> */}
+            </div>
         </div>
     )
 }

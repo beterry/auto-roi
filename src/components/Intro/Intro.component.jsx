@@ -32,8 +32,22 @@ export default ({theme}) => {
                 <MotionGraphic
                     color={'#69B8EB'}
                     firstPosition={1}
-                    secondPosition={4}
+                    secondPosition={3}
                     thirdPosition={2}
+                    theme={theme}
+                />
+                <MotionGraphic
+                    color={'#00C25F'}
+                    firstPosition={2}
+                    secondPosition={1}
+                    thirdPosition={3}
+                    theme={theme}
+                />
+                <MotionGraphic
+                    color={'#FF8C00'}
+                    firstPosition={3}
+                    secondPosition={2}
+                    thirdPosition={1}
                     theme={theme}
                 />
             </div>
