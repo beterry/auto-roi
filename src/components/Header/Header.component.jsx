@@ -27,7 +27,7 @@ export default ({changeTheme, theme}) => {
                     style={theme ? buttonStyles.light : buttonStyles.dark}
                     onClick={() => changeTheme()}
                 >
-                    <img src={theme ? moon : sun} />
+                    <img src={theme ? moon : sun} alt={'toggle theme'}/>
                 </button>
                 <p className={theme ? 'light' : 'dark'}>999-999-9999</p>
             </div>

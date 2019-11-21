@@ -34,7 +34,7 @@ function App() {
   const [profitMargin, setProfitMargin] = useState(0.5)
 
   //variable for showing calculator after input
-  const [showCalc, setShowCalc] = useState(true)
+  const [showCalc, setShowCalc] = useState(false)
 
   const activateCalc = (shop) => {
     if (shop === 'general'){
@@ -82,7 +82,7 @@ function App() {
   //theme state
   //true = light
   //false = dark
-  const [theme, setTheme] = useState(false)
+  const [theme, setTheme] = useState(true)
   const changeTheme = () => {
     setTheme(!theme)
   }
