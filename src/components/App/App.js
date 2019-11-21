@@ -167,7 +167,7 @@ function App() {
           <Arrows />
           <Padding />
           <LongTerm
-            color={'#0067A4'}
+            color={'#1594E0'}
             aro={aro}
             visits={visits}
             years={years}

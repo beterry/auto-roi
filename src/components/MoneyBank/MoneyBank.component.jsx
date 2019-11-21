@@ -57,7 +57,7 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                 theme={theme}
             >
                 <Slider
-                    color={'#0067A4'}
+                    color={'#1594E0'}
                     title={'Potential Net Revenue'}
                     total={numeral(potentialNetRevenue).format('$0,0')}
                     tip={[
