@@ -46,6 +46,7 @@
     top: -40px;
     width: 300px;
     padding: 10px 20px;
+    z-index: 1;
 }
 
 .tip p{
@@ -61,4 +62,26 @@
 
 .questionMark{
     cursor: pointer;
+}
+
+@media screen and (max-width: 1150px){
+    .tip{
+        background: #E9E9E9;
+        border-radius: 3px;
+        position: absolute;
+        top: calc(100% + 11px);
+        left: -10%;
+        right: -10%;
+        bottom: auto;
+        padding: 10px 20px;
+        width: auto;
+    }
+    .triangle{
+        position: absolute;
+        left: calc(100% - 20px);
+        top: 100%;
+        width: 11px;
+        height: 13px;
+        transform: rotate(0.25turn);
+    }
 }
