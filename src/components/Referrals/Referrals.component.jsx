@@ -35,7 +35,14 @@ export default ({color, aro, visits, years, referrals, onChangeReferrals, theme}
     }
 
     let total = aro * visits * years * referrals
-    let formatTotal = numeral(total).format('$0,0')
+
+    let formatTotal
+    if (total >= 1000000){
+        formatTotal = numeral(total).format('$0.0a')
+    } else {
+        formatTotal = numeral(total).format('$0,0')
+    }
+    
 
     return(
         <Step>

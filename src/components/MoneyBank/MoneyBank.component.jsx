@@ -33,6 +33,13 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
     let potentialNetRevenue = (((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost
     let total = potentialNetRevenue * profitMargin
 
+    let formattedTotal
+    if (total >= 1000000){
+        formattedTotal = numeral(total).format('$0.0a')
+    } else {
+        formattedTotal = numeral(total).format('$0,0')
+    }
+
     return(
         <Step>
             <Left
@@ -81,8 +88,8 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                 />
                 <Total
                     color={color}
-                    equation={`$${(((aro * visits * years * referrals) + (aro * visits * years)) * (retention * (quantity * redemptionRate))) - cost} x $${profitMargin} =`}
-                    total={numeral(total).format('$0,0')}
+                    equation={`${numeral(potentialNetRevenue).format('$0,0a')} x ${numeral(profitMargin).format('0%')} =`}
+                    total={formattedTotal}
                     tip={[
                         'Your Shops Net Profit Margin',
                         'multiplied by (x)',

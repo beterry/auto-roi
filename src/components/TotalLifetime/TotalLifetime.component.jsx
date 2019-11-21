@@ -17,8 +17,19 @@ import illustration from '../../images/illustrations/total-lifetime.svg'
 import numeral from 'numeral'
 
 export default ({color, aro, visits, years, referrals, theme}) => {
-    let total = (aro * visits * years * referrals) + (aro * visits * years)
-    let formatTotal = numeral(total).format('$0,0')
+    const valueOneCustomer = aro * visits * years
+    const referralRevenue = valueOneCustomer * referrals
+    let total = valueOneCustomer + referralRevenue
+
+    let formatTotal
+    if (total >= 1000000){
+        formatTotal = numeral(total).format('$0.0a')
+    } else {
+        formatTotal = numeral(total).format('$0,0')
+    }
+
+    let formatReferrals = numeral(referralRevenue).format('$0.0a')
+    
     return(
         <Step>
             <Left
@@ -68,7 +79,7 @@ export default ({color, aro, visits, years, referrals, theme}) => {
                 />
                 <Total
                     color={color}
-                    equation={`$${aro * visits * years} + $${aro * visits * years * referrals} =`}
+                    equation={`$${aro * visits * years} + ${formatReferrals} =`}
                     total={formatTotal}
                     tip={[
                         'Value of One Customer',

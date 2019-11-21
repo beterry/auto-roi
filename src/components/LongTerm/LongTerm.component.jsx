@@ -25,6 +25,13 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
     let potentialNetRevenue = longTermRevenue - cost
     let total = potentialNetRevenue / cost
 
+    let formattedTotal
+    if (total > 99.99){
+        formattedTotal = numeral(total).format('0%a')
+    } else {
+        formattedTotal = numeral(total).format('0%')
+    }
+
     return(
         <Step>
             <Left
@@ -171,8 +178,8 @@ export default ({color, aro, visits, years, referrals, quantity, redemptionRate,
                 />
                 <Total
                     color={color}
-                    equation={`${numeral(potentialNetRevenue).format('$0,0')} / ${numeral(cost).format('$0,0')} =`}
-                    total={numeral(total).format('0.00%')}
+                    equation={`${numeral(potentialNetRevenue).format('$0,0a')} / ${numeral(cost).format('$0,0')} =`}
+                    total={formattedTotal}
                     tip={[
                         'Potential Net Revenue',
                         'divided by (/)',

@@ -20,7 +20,19 @@ import large from '../../images/illustrations/phones-large-whole.svg'
 import numeral from 'numeral'
 
 export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionRate, onChangeQuantity, theme}) => {
-    let total = ((aro * quantity * redemptionRate) - cost) / cost
+
+    const increasedCarCount = quantity * redemptionRate
+    const grossRevenue = increasedCarCount * aro
+    const netRevenue = grossRevenue - cost
+    const total = netRevenue / cost
+
+    let formattedTotal
+    if (total > 99.99){
+        formattedTotal = numeral(total).format('0%a')
+    } else {
+        formattedTotal = numeral(total).format('0%')
+    }
+
     let illustration
     if (total <= 7) {
         illustration = small
@@ -88,7 +100,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                         'Choose the number of mailers you would like to send out.'
                     ]}
                     theme={theme}
-                    initPosition={1}
+                    initPosition={2}
                 />
                 <Slider
                     color={color}
@@ -105,7 +117,7 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 <Slider
                     color={color}
                     title={'Increased Car Count'}
-                    total={quantity * redemptionRate}
+                    total={increasedCarCount}
                     equation={numeral(quantity).format(0,0)+' x '+numeral(redemptionRate).format('0.0%')}
                     tip={[
                         'Quantity Mailed',
@@ -126,8 +138,8 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                 <Slider
                     color={color}
                     title={'Gross Revenue'}
-                    total={numeral(aro * (quantity * redemptionRate)).format('$0,0')}
-                    equation={numeral(aro).format('$0,0')+' x '+(quantity * redemptionRate)}
+                    total={numeral(grossRevenue).format('$0,0')}
+                    equation={numeral(aro).format('$0,0')+' x '+(increasedCarCount)}
                     tip={[
                         'Increased Car Count',
                         'multiplied by (x)',
@@ -148,17 +160,18 @@ export default ({color, aro, quantity, redemptionRate, cost, onChangeRedemptionR
                     color={color}
                     title={'Net Revenue'}
                     total={numeral((aro * quantity * redemptionRate) - cost).format('$0,0')}
-                    equation={numeral(aro * (quantity * redemptionRate)).format('$0,0')+' + '+numeral(cost).format('$0,0')}
+                    equation={numeral(grossRevenue).format('$0,0')+' - '+numeral(cost).format('$0,0')}
                     tip={[
                         'Less Estimated Cost of Mailer',
-                        'subtracted from (-)'
+                        'subtracted from (-)',
+                        'Gross Revenue'
                     ]}
                     theme={theme}
                 />
                 <Total
                     color={color}
-                    equation={`${numeral((aro * quantity * redemptionRate) - cost).format('$0,0')} / ${numeral(cost).format('$0,0')} =`}
-                    total={numeral(total).format('0.00%')}
+                    equation={`${numeral(netRevenue).format('$0a')} / ${numeral(cost).format('$0,0')} =`}
+                    total={formattedTotal}
                     tip={[
                     'Net Revenue',
                     'divided by (/)',
