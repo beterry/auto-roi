@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9408a48d3adc0a569203c6bb8f2a2652",
+    "revision": "70ec6a70e39cdbeec52abbb9aa9305e5",
     "url": "/auto-roi/index.html"
   },
   {
-    "revision": "0116c62ebda4524cd5a8",
-    "url": "/auto-roi/static/css/main.292059b3.chunk.css"
+    "revision": "4af0fc542c582abb8f37",
+    "url": "/auto-roi/static/css/main.009f4045.chunk.css"
   },
   {
     "revision": "b88c8ba9c192c5c52a65",
     "url": "/auto-roi/static/js/2.c15960c5.chunk.js"
   },
   {
-    "revision": "0116c62ebda4524cd5a8",
-    "url": "/auto-roi/static/js/main.49b72144.chunk.js"
+    "revision": "4af0fc542c582abb8f37",
+    "url": "/auto-roi/static/js/main.68186725.chunk.js"
   },
   {
     "revision": "2c3f1b1b827b079c3723",
