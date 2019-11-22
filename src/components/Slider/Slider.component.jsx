@@ -8,6 +8,7 @@ import tipTriangle from '../../images/arrows/tip-triangle.svg'
 import favicon from '../../images/logo/favicon-white.svg'
 
 const Slider = (
+    //props
     {
         color,
         title,
@@ -19,6 +20,7 @@ const Slider = (
         theme,
         initPosition=2
     }
+    //component function
 ) => {
     const totalStyles = {
         color: color
@@ -95,7 +97,6 @@ const Slider = (
             background: color
         }
     ]
-    //-------------------------------
 
     const themeFont = {
         light: {
@@ -131,6 +132,7 @@ const Slider = (
         setPosition(e.target.getAttribute('index'))
     }
 
+    //render
     return (
         <div className={styles.slider}>
             <div className={styles.total}>
@@ -160,7 +162,7 @@ const Slider = (
                 <div className={styles.options}>
                     <div className={styles.line} style={lineStyles}/>
                     <div className={styles.overlayLine} style={overlayStyle[position]}/>
-                    <div className={styles.touches}>
+                    <div className={styles.touches} >
                         {options.map((option, index) => 
                             <div 
                                 className={styles.touch}
@@ -168,6 +170,7 @@ const Slider = (
                                 value={option}
                                 index={index}
                                 onClick={(e) => handleTouch(e)}
+                                onDragOver={(e) => handleTouch(e)}
                             >
                                 <div className={styles.dot} index={index} value={option}/>
                             </div>

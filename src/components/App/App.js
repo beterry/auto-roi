@@ -34,7 +34,7 @@ function App() {
   const [profitMargin, setProfitMargin] = useState(0.5)
 
   //variable for showing calculator after input
-  const [showCalc, setShowCalc] = useState(false)
+  const [showCalc, setShowCalc] = useState(true)
 
   const activateCalc = (shop) => {
     if (shop === 'general'){
