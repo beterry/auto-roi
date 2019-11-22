@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 
 //import styles
 import styles from './Slider.module.css'
@@ -132,6 +132,20 @@ const Slider = (
         setPosition(e.target.getAttribute('index'))
     }
 
+
+    const [touchStart, setTouchStart] = useState(null)
+    const sliderRef = useRef(null)
+    
+
+    const handleTouchStart = (e) => {
+        const touch = e.touches[0]
+    }
+
+    const handleTouchMove = (e) => {
+        const touch = e.changedTouches[0]
+        
+    }
+
     //render
     return (
         <div className={styles.slider}>
@@ -159,7 +173,7 @@ const Slider = (
                 }
             </div>
             {options ? 
-                <div className={styles.options}>
+                <div className={styles.options} ref={sliderRef}>
                     <div className={styles.line} style={lineStyles}/>
                     <div className={styles.overlayLine} style={overlayStyle[position]}/>
                     <div className={styles.touches} >
@@ -180,6 +194,8 @@ const Slider = (
                         className={styles.tracker}
                         style={{...positionStyle[position], ...borderStyle}}
                         draggable={true}
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={(e) => handleTouchMove(e)}
                     >
                             <img src={favicon} alt={'adjust slider'} draggable={false}/>
                     </div>
