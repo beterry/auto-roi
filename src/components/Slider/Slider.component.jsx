@@ -179,8 +179,9 @@ const Slider = (
                     <div
                         className={styles.tracker}
                         style={{...positionStyle[position], ...borderStyle}}
+                        draggable={true}
                     >
-                            <img src={favicon} alt={'adjust slider'}/>
+                            <img src={favicon} alt={'adjust slider'} draggable={false}/>
                     </div>
                 </div>:
                 null
