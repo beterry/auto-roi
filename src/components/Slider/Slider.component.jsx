@@ -22,6 +22,12 @@ const Slider = (
     }
     //component function
 ) => {
+    //state
+    const [position, setPosition] = useState(initPosition)
+    const [showTip, setShowTip] = useState(false)
+    const [range, setRange] = useState({min: null, max: null})
+    const [positionX, setpositionX] = useState(null)
+
     const totalStyles = {
         color: color
     }
@@ -107,7 +113,7 @@ const Slider = (
         }
     }
     
-    const [showTip, setShowTip] = useState(false)
+    
     const toggleTip = () => {
         setShowTip(!showTip)
     }
@@ -125,25 +131,58 @@ const Slider = (
         }
     }, [showTip])
 
-    const [position, setPosition] = useState(initPosition)
+    
 
     const handleTouch = (e) => {
         onChange(e.target.getAttribute('value'))
         setPosition(e.target.getAttribute('index'))
     }
 
-
-    const [touchStart, setTouchStart] = useState(null)
     const sliderRef = useRef(null)
     
-
     const handleTouchStart = (e) => {
-        const touch = e.touches[0]
+        //calcualte coordinates
+        const initialTouch = e.touches[0].clientX
+        //calcualte range
+        const sliderWidth = sliderRef.current.clientWidth
+        //set range state
+        const sliderSection = sliderWidth / 4
+        const rangeMin = initialTouch - (sliderSection * position)
+        const rangeMax = initialTouch + (sliderSection * (4 - position))
+        setRange({min: rangeMin, max: rangeMax})
     }
 
     const handleTouchMove = (e) => {
-        const touch = e.changedTouches[0]
-        
+        //calculate coordinates
+        const touch = e.touches[0].clientX
+        //set positionX state
+        const sliderPosition = Math.floor(((touch - range.min) * 100) / (range.max - range.min))
+        setpositionX(sliderPosition)
+    }
+
+    const handleTouchEnd = (e) => {
+        //which option are we closest to?
+        console.log(positionX)
+        if (positionX <= 12){
+            onChange(options[0])
+            setPosition(0)
+        }
+        if (positionX > 12 && positionX <= 36){
+            onChange(options[1])
+            setPosition(1)
+        }
+        if (positionX > 36 && positionX <= 61){
+            onChange(options[2])
+            setPosition(2)
+        }
+        if (positionX > 61 && positionX <= 85){
+            onChange(options[3])
+            setPosition(3)
+        }
+        if (positionX >= 85){
+            onChange(options[4])
+            setPosition(4)
+        }
     }
 
     //render
@@ -175,7 +214,7 @@ const Slider = (
             {options ? 
                 <div className={styles.options} ref={sliderRef}>
                     <div className={styles.line} style={lineStyles}/>
-                    <div className={styles.overlayLine} style={overlayStyle[position]}/>
+                    <div className={styles.overlayLine} style={{...overlayStyle[position]}}/>
                     <div className={styles.touches} >
                         {options.map((option, index) => 
                             <div 
@@ -184,7 +223,6 @@ const Slider = (
                                 value={option}
                                 index={index}
                                 onClick={(e) => handleTouch(e)}
-                                onDragOver={(e) => handleTouch(e)}
                             >
                                 <div className={styles.dot} index={index} value={option}/>
                             </div>
@@ -193,9 +231,9 @@ const Slider = (
                     <div
                         className={styles.tracker}
                         style={{...positionStyle[position], ...borderStyle}}
-                        draggable={true}
-                        onTouchStart={handleTouchStart}
+                        onTouchStart={(e) => handleTouchStart(e)}
                         onTouchMove={(e) => handleTouchMove(e)}
+                        onTouchEnd={(e) => handleTouchEnd(e)}
                     >
                             <img src={favicon} alt={'adjust slider'} draggable={false}/>
                     </div>

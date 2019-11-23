@@ -73,7 +73,6 @@
     align-items: center;
     transition-property: left;
     transition-duration: 0.3s;
-    cursor: grab;
 }
 
 .tracker img{
