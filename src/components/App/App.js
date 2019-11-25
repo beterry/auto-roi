@@ -34,11 +34,11 @@ function App() {
   const [profitMargin, setProfitMargin] = useState(0.5)
 
   //variable for showing calculator after input
-  const [showCalc, setShowCalc] = useState(true)
+  const [showCalc, setShowCalc] = useState(false)
 
   const activateCalc = (shop) => {
     if (shop === 'general'){
-      setShowCalc(true)
+      setShowCalc('general')
     }
   }
 
@@ -95,6 +95,7 @@ function App() {
         <Instructions
           activateCalc={activateCalc}
           theme={theme}
+          showCalc={showCalc}
         />
         {showCalc ? <Arrows /> : <Padding />}
       </Screen>

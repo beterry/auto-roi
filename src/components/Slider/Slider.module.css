@@ -32,8 +32,8 @@
     top: 50%;
     margin-top: -2.5px;
     align-items: center;
-    /* transition-property: width;
-    transition-duration: 0.3s; */
+    transition-property: width;
+    transition-duration: 0.1s; 
     max-width: 100%;
 }
 
@@ -72,8 +72,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* transition-property: left;
-    transition-duration: 0.3s; */
+    transition-property: left;
+    transition-duration: 0.1s;
     margin-left: -15px;
 }
 

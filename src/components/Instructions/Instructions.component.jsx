@@ -7,7 +7,7 @@ import styles from './Instructions.module.css'
 import blueCar from '../../images/illustrations/car-blue.svg'
 import redCar from '../../images/illustrations/car-red.svg'
 
-export default ({activateCalc, theme}) => (
+export default ({activateCalc, theme, showCalc}) => (
     <div className={styles.instructions}>
         <h3>Instructions</h3>
         <p
@@ -23,14 +23,24 @@ export default ({activateCalc, theme}) => (
             >
                 GENERAL SHOP
             </button>
-            <p className={theme ? 'light' : 'dark'}>or</p>
+            <p
+                className={theme ? 'light' : 'dark'}
+                style={{opacity: showCalc ? '.25' : '1'}}
+            >
+                or
+            </p>
             <button
                 className={theme ? styles.lightButton : styles.darkButton}
                 onClick={()=>console.log('Specialty Shop')}
+                style={{opacity: showCalc === 'general' ? '.25' : '1'}}
             >
                 SPECIALTY SHOP
             </button>
-            <img src={blueCar} alt={'Blue car'} />
+            <img
+                src={blueCar}
+                alt={'Blue car'}
+                style={{opacity: showCalc === 'general' ? '.25' : '1'}}
+            />
         </div>
     </div>
 )
