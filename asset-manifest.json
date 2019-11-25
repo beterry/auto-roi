@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/auto-roi/static/css/main.9162f6a4.chunk.css",
-    "main.js": "/auto-roi/static/js/main.912343b1.chunk.js",
-    "main.js.map": "/auto-roi/static/js/main.912343b1.chunk.js.map",
+    "main.js": "/auto-roi/static/js/main.dcca1c8c.chunk.js",
+    "main.js.map": "/auto-roi/static/js/main.dcca1c8c.chunk.js.map",
     "runtime-main.js": "/auto-roi/static/js/runtime-main.ad08f81d.js",
     "runtime-main.js.map": "/auto-roi/static/js/runtime-main.ad08f81d.js.map",
     "static/js/2.c15960c5.chunk.js": "/auto-roi/static/js/2.c15960c5.chunk.js",
     "static/js/2.c15960c5.chunk.js.map": "/auto-roi/static/js/2.c15960c5.chunk.js.map",
     "index.html": "/auto-roi/index.html",
-    "precache-manifest.4d3662fca4aec58df4cffc710a8ddc96.js": "/auto-roi/precache-manifest.4d3662fca4aec58df4cffc710a8ddc96.js",
+    "precache-manifest.0ca8bddf2be6c70b4a6c51c7894c4c2c.js": "/auto-roi/precache-manifest.0ca8bddf2be6c70b4a6c51c7894c4c2c.js",
     "service-worker.js": "/auto-roi/service-worker.js",
     "static/css/main.9162f6a4.chunk.css.map": "/auto-roi/static/css/main.9162f6a4.chunk.css.map",
     "static/media/MS_FullColor_2019.svg": "/auto-roi/static/media/MS_FullColor_2019.e24f72c9.svg",
@@ -41,6 +41,6 @@
     "static/js/runtime-main.ad08f81d.js",
     "static/js/2.c15960c5.chunk.js",
     "static/css/main.9162f6a4.chunk.css",
-    "static/js/main.912343b1.chunk.js"
+    "static/js/main.dcca1c8c.chunk.js"
   ]
 }
