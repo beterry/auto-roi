@@ -11,7 +11,7 @@ import tipTriangle from '../../images/arrows/tip-triangle.svg'
 export default ({color, title, children, tip, theme}) => {
     const themeStyle= {
         light: {
-            border: `solid 2px ${color}`,
+            outline: `solid 2px ${color}`,
             background: 'white'
         },
         dark: {
