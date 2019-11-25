@@ -27,13 +27,10 @@ const Slider = (
     const [showTip, setShowTip] = useState(false)
     const [range, setRange] = useState({min: null, max: null})
     const [positionX, setpositionX] = useState(null)
+    const [isSliding, setIsSliding] = useState(false)
 
     const totalStyles = {
         color: color
-    }
-
-    const lineStyles = {
-        background: color
     }
 
     let borderStyle = {}
@@ -51,58 +48,7 @@ const Slider = (
         }
     }
 
-    //styles for positions on slider
-
-    const positionStyle = [
-        {
-            left: '-15px',
-            marginLeft: '0px',
-            background: color
-        },
-        {
-            left: '25%',
-            marginLeft: '-15px',
-            background: color
-        },
-        {
-            left: '50%',
-            marginLeft: '-15px',
-            background: color
-        },
-        {
-            left: '75%',
-            marginLeft: '-15px',
-            background: color
-        },
-        {
-            left: 'calc(100% - 15px)',
-            marginLeft: '0px',
-            background: color
-        }
-    ]
-
-    const overlayStyle = [
-        {
-            width: '0px',
-            background: color
-        },
-        {
-            width: '25%',
-            background: color
-        },
-        {
-            width: '50%',
-            background: color
-        },
-        {
-            width: '75%',
-            background: color
-        },
-        {
-            width: '100%',
-            background: color
-        }
-    ]
+    const colorBackground = {background: color}
 
     const themeFont = {
         light: {
@@ -112,7 +58,6 @@ const Slider = (
             color: 'white'
         }
     }
-    
     
     const toggleTip = () => {
         setShowTip(!showTip)
@@ -131,8 +76,6 @@ const Slider = (
         }
     }, [showTip])
 
-    
-
     const handleTouch = (e) => {
         onChange(e.target.getAttribute('value'))
         setPosition(e.target.getAttribute('index'))
@@ -141,9 +84,11 @@ const Slider = (
     const sliderRef = useRef(null)
     
     const handleTouchStart = (e) => {
+        //set isSliding to true
+        setIsSliding(true)
         //calcualte coordinates
         const initialTouch = e.touches[0].clientX
-        //calcualte range
+        //calcualte slider width
         const sliderWidth = sliderRef.current.clientWidth
         //set range state
         const sliderSection = sliderWidth / 4
@@ -183,6 +128,23 @@ const Slider = (
             onChange(options[4])
             setPosition(4)
         }
+        //set isSliding to false
+        setIsSliding(false)
+    }
+
+    const calcTrackerPosition = () => {
+        if (isSliding && positionX < 0){
+            return '0%'
+        }
+        if (isSliding && positionX > 100){
+            return '100%'
+        }
+        if (isSliding){
+            return `${positionX}%`
+        }
+        if (!isSliding){
+            return `${position * 25}%`
+        }
     }
 
     //render
@@ -213,8 +175,14 @@ const Slider = (
             </div>
             {options ? 
                 <div className={styles.options} ref={sliderRef}>
-                    <div className={styles.line} style={lineStyles}/>
-                    <div className={styles.overlayLine} style={{...overlayStyle[position]}}/>
+                    <div className={styles.line} style={colorBackground}/>
+                    <div
+                        className={styles.overlayLine}
+                        style={{
+                            ...colorBackground,
+                            width: isSliding ? `${positionX}%` : `${position * 25}%`
+                            }}
+                    />
                     <div className={styles.touches} >
                         {options.map((option, index) => 
                             <div 
@@ -230,7 +198,11 @@ const Slider = (
                     </div>
                     <div
                         className={styles.tracker}
-                        style={{...positionStyle[position], ...borderStyle}}
+                        style={{
+                            ...colorBackground,
+                            ...borderStyle,
+                            left: calcTrackerPosition()
+                        }}
                         onTouchStart={(e) => handleTouchStart(e)}
                         onTouchMove={(e) => handleTouchMove(e)}
                         onTouchEnd={(e) => handleTouchEnd(e)}
