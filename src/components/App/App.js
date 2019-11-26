@@ -40,6 +40,9 @@ function App() {
     if (shop === 'general'){
       setShowCalc('general')
     }
+    if (shop === 'specialty'){
+      setShowCalc('specialty')
+    }
   }
 
   //cost of mailer

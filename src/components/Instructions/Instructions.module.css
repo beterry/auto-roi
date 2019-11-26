@@ -19,6 +19,7 @@
 .buttons{
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .buttons > *{
@@ -34,6 +35,8 @@
     font-family: 'Roboto', sans-serif;
     text-transform: capitalize;
     letter-spacing: 0.48px;
+    cursor: pointer;
+    z-index: 1;
 }
 
 .lightButton{
@@ -44,6 +47,13 @@
 .darkButton{
     background-color: #FF8C00;
     color: white;
+}
+
+.buttons img{
+    position: absolute;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    z-index: 0;
 }
 
 @media screen and (max-width: 850px){
