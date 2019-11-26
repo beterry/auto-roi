@@ -53,6 +53,10 @@
     margin: 10px;
 }
 
+.bold{
+    font-weight: bold;
+}
+
 .triangle{
     position: absolute;
     left: 117%;

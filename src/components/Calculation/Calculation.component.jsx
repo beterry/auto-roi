@@ -47,6 +47,23 @@ export default ({color, title, children, tip, theme}) => {
         }
     }, [showTip])
 
+    const isOperation = (firstWord) => {
+        if (
+            firstWord === 'multiplied' ||
+            firstWord === 'calculated' ||
+            firstWord === 'plus' ||
+            firstWord === 'equals' ||
+            firstWord === 'minus' ||
+            firstWord === 'divided' ||
+            firstWord === 'specified' ||
+            firstWord === 'subtracted'
+        ){
+            return true
+        } else {
+            return false
+        }
+    }
+
     return (
         <div
             className={styles.calculation}
@@ -66,7 +83,13 @@ export default ({color, title, children, tip, theme}) => {
                 }
                 {tip && showTip ?
                     <div className={styles.tip}>
-                        {tip.map((line, index) => <p key={`${index} ${line}`}>{line}</p>)}
+                        {tip.map((line, index) => 
+                            <p
+                                key={`${index} ${line}`}
+                                className={isOperation(line.split(' ')[0].toLowerCase()) ? styles.bold : null}
+                            >
+                                {line}
+                            </p>)}
                     </div> :
                     undefined
                 }
