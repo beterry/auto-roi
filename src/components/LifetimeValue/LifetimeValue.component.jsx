@@ -92,6 +92,7 @@ export default (
                         'How many times does an average customer visit your shop per year?'
                     ]}
                     theme={theme}
+                    initPosition={1}
                 />
                 <Slider
                     color={color}
